@@ -1,17 +1,39 @@
-Yuan Nata Nugraha is a passionate and driven Software Engineer with expertise in frontend and backend development. 
-He specializes in building responsive, accessible, and performant web applications.
-His core skills include HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Node.js, and Python.
+[Data Pribadi / Personal Data]
+Nama Lengkap / Full Name: Yuan Nata Nugraha
+Panggilan / Nickname: Yuan
+Profesi / Profession: Software Engineer, Fullstack Developer, AI Developer, Data-focused Developer.
+Deskripsi Singkat / Short Description: Yuan Nata Nugraha is a passionate and driven Software Engineer with expertise in frontend, backend, and AI integration. He specializes in building responsive, accessible, and performant web applications. He is also passionate about automating systems and exploring AI to solve real-world problems.
 
-Experience:
-- Frontend Developer at Tech Corp: Built user-friendly interfaces using React and Tailwind CSS.
-- Backend Developer Intern at Data Systems: Developed RESTful APIs using Node.js and Express.
+[Keahlian Utama / Core Skills]
+- Frontend: HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Vite.
+- Backend & AI: Node.js, Express, Python, FastAPI, Langchain, Google Gemini AI, OpenAI.
+- Lainnya / Others: Git, GitHub, RESTful APIs, Vercel Deployment, System Automation.
 
-Projects:
-1. E-Commerce Dashboard: A comprehensive dashboard for managing products and orders, built with Next.js and Tailwind.
-2. AI Chatbot Portfolio: A personal portfolio website featuring an interactive AI assistant powered by Langchain and OpenAI.
+[Pengalaman Kerja / Work Experience]
+1. Frontend Developer di Tech Corp
+   - Tanggal / Dates: Januari 2023 - Desember 2023 (12 Bulan / 1 Tahun)
+   - Deskripsi: Membangun antarmuka pengguna yang responsif dan ramah pengguna (user-friendly interfaces) menggunakan React dan Tailwind CSS. Berkolaborasi dengan tim desain untuk mengimplementasikan UI/UX modern.
 
-Education:
-- Bachelor of Computer Science from University of Technology.
+2. Backend Developer Intern di Data Systems
+   - Tanggal / Dates: Juli 2022 - Desember 2022 (6 Bulan)
+   - Deskripsi: Mengembangkan RESTful APIs menggunakan Node.js dan Express. Mengelola database dan memastikan performa backend berjalan optimal.
 
-Interests:
-Yuan is passionate about AI, open-source software, and learning new technologies to solve real-world problems.
+[Proyek Portofolio / Portfolio Projects]
+1. E-Commerce Dashboard
+   - Deskripsi: A comprehensive dashboard for managing products and orders. Membantu admin toko online mengelola stok dan laporan penjualan.
+   - Teknologi: Next.js, Tailwind CSS, TypeScript.
+
+2. AI Chatbot Portfolio
+   - Deskripsi: Website portofolio pribadi interaktif yang dilengkapi asisten AI pintar. Asisten ini dapat menjawab pertanyaan dalam berbagai bahasa dan menghitung durasi waktu secara matematis.
+   - Teknologi: React, Vite, FastAPI, Python, Langchain, Google Gemini AI.
+
+[Pendidikan / Education]
+- Gelar: Bachelor of Computer Science (Sarjana Ilmu Komputer)
+- Institusi: University of Technology
+- Tahun Lulus: 2024
+
+[Minat & Hobi / Interests & Hobbies]
+Yuan sangat tertarik pada pengembangan Kecerdasan Buatan (AI), open-source software, mengotomatisasi sistem, dan terus mempelajari teknologi baru untuk menyelesaikan masalah dunia nyata.
+
+[Catatan Tambahan untuk AI / Additional Notes for AI]
+Kamu (AI) harus bisa menghitung angka atau bulan jika diminta (misal 12 bulan + 6 bulan = 18 bulan pengalaman total). Kamu juga diizinkan menerjemahkan seluruh informasi ini ke bahasa apapun yang dipakai pengguna (Jepang, Korea, Inggris, Indonesia, dll). Hubungkan kata-kata yang tidak baku dengan profesi, misal "bikin web" berarti "frontend", "ngoding server" berarti "backend".
