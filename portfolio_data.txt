@@ -1,0 +1,45 @@
+YUAN NATA NUGRAHA
++62 8973860060 | nyuannata@gmail.com | https://id.jobstreet.com/id/profiles/yuannata-nugrahab1MHgJC0BJ | https://github.com/nyuannata
+Bekasi, Bekasi, Jawa Barat, 17412
+My Name is Yuan and currently livin in Bekasi. I am a motivated Python and data focused developer with
+hands on experience in system logic, automation concepts, and technical projects. I am comfortable
+working with Python, basic data analysis, and problem solving tasks. I am open to freelance projects
+involving scripting, data processing, and technical support, and I am committed to delivering reliable and
+well structured solutions.
+Internship Experience
+Sriwijaya University - Palembang, Indonesia Feb 2020 – Mar 2020
+Laboratory Intern – Sriwijaya University
+ Operated and monitored 3D printing processes
+ Understood detailed 3D printer system workflows and configurations
+ Assisted in basic troubleshooting and hardware maintenance
+Astra Credit Companies - Jakarta, Indonesia Maret 2026 - Sep 2026
+ Operated Training data recording to text with a thousand data voices centre
+ Operated raspberry pi 5 to capture plate number with GPS SIM module 
+ Making some project like RAG, portofolio chatbot, whisper v3 large, and YOLO 
+Education
+Universitas Gunadarma - Bekasi, Indonesia Oct 2024 - present
+Bachelor in Computer System, 3.45/4.00
+Organizational Experience
+HIMPUNAN MAHASISWA JAMBI (HIMAJA) SRIWIJAYA UNIVERSITY – Palembang, Indonesia Jan 2018 - Feb 2020
+CHARITY LIVESTREAM COMMITTEE – Streamer Channel GAGITUSIL Jun 2025
+(Moderator & Equipment | Volunteer)
+ Selected as a committee member based on previous experience as a livestream moderator.
+ Responsible for managing and preparing event equipment.
+ Conducted event documentation through photo and video shooting.
+ Carried out surveys of orphanages as potential charity beneficiaries.
+Skills
+Technical Skills: Python Programming (basic to intermediate), Data Analysis Fundamentals, SQL (basic querying), Machine Learning
+Fundamentals, Data preprocessing & Feature Engineering (basic), Cloud Computing Fundamentals (AWS, Google Cloud, Microsoft
+Azure), Hardware & System Integration, Basic Automation & Control Logic, Mikrokontroler (Arduino, ESP32), Basic Website (HTML,
+CSS, JavaScript), Desain dan Perakitan Robot (Line Follower, Wall Follower, Mobile Robot), Keamanan Jaringan Komputer.
+Soft Skills: Analytical Thinking, Problem Solving, Teamwork & Collaboration, Communication, Fast Learner & Self Motivated
+Certification
+ Dasar Google Cloud dicoding Indonesia October 2025
+ Aplikasi Gen AI Microsoft Azure dicoding Indonesia October 2025
+ Dasar Cloud dan Gen AI di AWS dicoding Indonesia October 2025
+ Machine Learning Basic dicoding Indonesia October 2025
+ Penerapan Data Science dengan Microsoft Fabric dicoding Indonesia October 2025
+ Dasar AI dicoding indonesia September 2025
+ Data Science dicoding indonesia September 2025
+ Structured Query Language (SQL) dicoding Indonesia September 2025
+ Pemrograman dengan Python dicoding Indonesia September 2025

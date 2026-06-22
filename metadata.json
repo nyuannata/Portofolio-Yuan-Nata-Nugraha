@@ -1,0 +1,6 @@
+{
+  "name": "Yuan Nata Nugraha Portfolio",
+  "description": "Portfolio website for Yuan Nata Nugraha, a Python and data-focused developer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
