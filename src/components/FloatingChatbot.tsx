@@ -37,7 +37,7 @@ const FloatingChatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/_/backend/chat', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMsg.text })

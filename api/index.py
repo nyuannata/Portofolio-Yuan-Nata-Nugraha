@@ -17,7 +17,7 @@ load_dotenv()
 
 app = FastAPI()
 
-# Allow CORS for local development
+# Allow CORS for local development and Vercel
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -31,7 +31,8 @@ class ChatRequest(BaseModel):
 
 # RAG Setup
 # 1. Load Data
-loader = TextLoader("portfolio_data.txt")
+file_path = os.path.join(os.path.dirname(__file__), "portfolio_data.txt")
+loader = TextLoader(file_path)
 documents = loader.load()
 
 # 2. Split Data
@@ -41,7 +42,7 @@ docs = text_splitter.split_documents(documents)
 # 3. Create Vector Store
 # Ensure GEMINI_API_KEY is set in your environment variables
 embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-2")
-vectorstore =FAISS.from_documents(docs, embeddings)
+vectorstore = FAISS.from_documents(docs, embeddings)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
 # 4. Create LLM and Prompt
@@ -66,12 +67,11 @@ prompt = ChatPromptTemplate.from_messages([
 question_answer_chain = create_stuff_documents_chain(llm, prompt)
 rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
-
-@app.post("/chat")
+@app.post("/api/chat")
 async def chat_endpoint(request: ChatRequest):
     response = rag_chain.invoke({"input": request.message})
     return {"reply": response["answer"]}
 
-@app.get("/")
+@app.get("/api")
 def health_check():
-    return {"status": "ok", "message": "Backend is running"}
+    return {"status": "ok", "message": "Backend is running on Vercel"}
