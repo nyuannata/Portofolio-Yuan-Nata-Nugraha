@@ -1,9 +1,6 @@
 fastapi
 uvicorn
-langchain
 langchain-google-genai
-langchain-community
-faiss-cpu
+langchain-core
 pydantic
 python-dotenv
-tiktoken
