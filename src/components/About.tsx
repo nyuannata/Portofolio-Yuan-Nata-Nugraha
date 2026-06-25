@@ -46,7 +46,7 @@ export function About() {
                 <div>
                   <h4 className="font-bold text-white text-lg">Universitas Gunadarma</h4>
                   <p className="text-gray-400 mt-1">Bachelor in Computer System</p>
-                  <p className="text-sm font-mono text-yellow-500 mt-2">GPA: 3.45 / 4.00</p>
+                  <p className="text-sm font-mono text-yellow-500 mt-2">GPA: 3.52 / 4.00</p>
                 </div>
                 <div className="text-sm text-gray-500 font-mono">Oct 2024 - Present</div>
               </div>

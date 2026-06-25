@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Monitor, Server, Bot, Code2, PlaySquare } from "lucide-react";
+import { Monitor, Server, Bot, Code2, PlaySquare, Database, Cpu, Terminal } from "lucide-react";
 
 export function Hero() {
   return (
@@ -48,7 +48,7 @@ export function Hero() {
       <motion.div 
         animate={{ y: [0, -15, 0] }} 
         transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-        className="absolute left-[10%] bottom-[20%] text-blue-500 hidden lg:block"
+        className="absolute left-[5%] bottom-[5%] text-blue-500 hidden lg:block"
       >
         <div className="relative w-48 h-48 flex items-center justify-center">
           <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full" />
@@ -66,6 +66,36 @@ export function Hero() {
         </div>
       </motion.div>
 
+      <motion.div 
+        animate={{ y: [0, 10, 0], rotate: [0, 5, 0] }} 
+        transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1 }}
+        className="absolute top-[20%] left-[5%] text-purple-500 hidden xl:block opacity-70 z-10"
+      >
+        <div className="relative w-20 h-20 flex items-center justify-center">
+          <Database size={50} strokeWidth={1.5} className="relative z-10 drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
+        </div>
+      </motion.div>
+
+      <motion.div 
+        animate={{ y: [0, -12, 0], rotate: [0, -5, 0] }} 
+        transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut", delay: 0.2 }}
+        className="absolute top-[15%] left-[28%] text-amber-500 hidden lg:block opacity-60 z-10"
+      >
+        <div className="relative w-16 h-16 flex items-center justify-center">
+          <Cpu size={45} strokeWidth={1.5} className="relative z-10 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
+        </div>
+      </motion.div>
+
+      <motion.div 
+        animate={{ y: [0, 15, 0] }} 
+        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1.5 }}
+        className="absolute bottom-[35%] left-[32%] text-cyan-400 hidden xl:block opacity-50 z-10"
+      >
+        <div className="relative w-24 h-24 flex items-center justify-center">
+          <Terminal size={55} strokeWidth={1.5} className="relative z-10 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]" />
+        </div>
+      </motion.div>
+
       {/* Bottom Center Character Placeholder / Stylized Face or Icon */}
       <motion.div 
         initial={{ y: 150 }}
@@ -78,11 +108,12 @@ export function Hero() {
 
       {/* Scroll Down Indicator */}
       <motion.div 
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
         animate={{ y: [0, 8, 0] }} 
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center z-20 cursor-pointer hover:border-red-500 hover:text-red-500 transition-colors hidden md:flex"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center z-20 cursor-pointer hover:border-blue-500 hover:text-blue-500 transition-colors hidden md:flex text-gray-500"
       >
-        <svg fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-gray-500">
+        <svg fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-current">
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
         </svg>
       </motion.div>

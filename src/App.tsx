@@ -9,6 +9,8 @@ import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
 import { Certifications } from "./components/Certifications";
 import FloatingChatbot from "./components/FloatingChatbot";
+import FloatingSocials from "./components/FloatingSocials";
+import { Footer } from "./components/Footer";
 
 export default function App() {
   return (
@@ -26,11 +28,9 @@ export default function App() {
         <Certifications />
       </main>
 
-      <footer className="border-t border-white/10 py-12 text-center text-gray-500 text-sm relative z-10 bg-black">
-        <p>&copy; {new Date().getFullYear()} Yuan Nata Nugraha. All rights reserved.</p>
-        <p className="mt-2 text-xs opacity-50">Built with React, Tailwind & Motion</p>
-      </footer>
+      <Footer />
 
+      <FloatingSocials />
       <FloatingChatbot />
     </div>
   );

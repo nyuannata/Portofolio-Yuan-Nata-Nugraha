@@ -1,0 +1,17 @@
+Yuan Nata Nugraha is a passionate and driven Software Engineer with expertise in frontend and backend development. 
+He specializes in building responsive, accessible, and performant web applications.
+His core skills include HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Node.js, and Python.
+
+Experience:
+- Frontend Developer at Tech Corp: Built user-friendly interfaces using React and Tailwind CSS.
+- Backend Developer Intern at Data Systems: Developed RESTful APIs using Node.js and Express.
+
+Projects:
+1. E-Commerce Dashboard: A comprehensive dashboard for managing products and orders, built with Next.js and Tailwind.
+2. AI Chatbot Portfolio: A personal portfolio website featuring an interactive AI assistant powered by Langchain and OpenAI.
+
+Education:
+- Bachelor of Computer Science from University of Technology.
+
+Interests:
+Yuan is passionate about AI, open-source software, and learning new technologies to solve real-world problems.
