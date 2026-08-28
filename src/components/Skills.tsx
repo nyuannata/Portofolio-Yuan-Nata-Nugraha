@@ -1,56 +1,177 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { Code2, Brain, Wrench, Globe, Cloud, Wifi } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Technical Skills",
-    skills: ["Python Programming (basic to intermediate)", "Data Analysis Fundamentals", "SQL (basic querying)", "Machine Learning Fundamentals", "Data preprocessing & Feature Engineering (basic)"]
+    Icon: Code2,
+    title: "Programming & Data",
+    color: "text-blue-400",
+    skills: ["Python", "C++", "SQL", "Pandas", "NumPy"],
+    // Parallax: LEFT → RIGHT
+    parallax: { x: [-40, 0], y: [0, 0] },
   },
   {
-    title: "Cloud & Systems",
-    skills: ["AWS", "Google Cloud", "Microsoft Azure", "Hardware & System Integration", "Microcontrollers (Arduino, ESP32)"]
+    Icon: Brain,
+    title: "AI / Machine Learning",
+    color: "text-violet-400",
+    skills: [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Generative AI",
+      "Large Language Models",
+      "Natural Language Processing",
+      "Automatic Speech Recognition",
+      "Model Evaluation",
+      "Computer Vision",
+    ],
+    // Parallax: BOTTOM → TOP
+    parallax: { x: [0, 0], y: [50, 0] },
   },
   {
-    title: "Web & Robotics",
-    skills: ["HTML, CSS, JavaScript (Basic)", "Robot Design & Assembly (Line Follower, Wall Follower, Mobile Robot)", "Computer Network Security", "Basic Automation & Control Logic"]
+    Icon: Wrench,
+    title: "AI / ML Tools",
+    color: "text-amber-400",
+    skills: [
+      "OpenAI Whisper",
+      "Whisper Large-v3",
+      "Google Gemini API",
+      "Retrieval-Augmented Generation",
+      "Hugging Face Transformers",
+      "PyTorch",
+      "YOLOv8",
+    ],
+    // Parallax: RIGHT → LEFT
+    parallax: { x: [40, 0], y: [0, 0] },
   },
   {
-    title: "Soft Skills",
-    skills: ["Analytical Thinking", "Problem Solving", "Teamwork & Collaboration", "Communication", "Fast Learner", "Self Motivated"]
-  }
+    Icon: Globe,
+    title: "Web & Application",
+    color: "text-green-400",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Firebase", "REST API"],
+    // Parallax: LEFT → RIGHT, slightly slower
+    parallax: { x: [-30, 0], y: [0, 0] },
+  },
+  {
+    Icon: Cloud,
+    title: "Cloud & Platforms",
+    color: "text-cyan-400",
+    skills: ["Microsoft Azure AI Foundry", "Google AI Platforms", "Git", "GitHub"],
+    // Parallax: BOTTOM → TOP, slower
+    parallax: { x: [0, 0], y: [40, 0] },
+  },
+  {
+    Icon: Wifi,
+    title: "IoT",
+    color: "text-pink-400",
+    skills: ["ESP32", "Raspberry Pi", "MQTT"],
+    // Parallax: RIGHT → LEFT
+    parallax: { x: [30, 0], y: [0, 0] },
+  },
 ];
 
-export function Skills() {
+// Per-card parallax thresholds — staggered so each card enters at different scroll point
+const cardScrollRanges = [
+  [0.0, 0.35],
+  [0.05, 0.4],
+  [0.1, 0.45],
+  [0.15, 0.5],
+  [0.2, 0.55],
+  [0.25, 0.6],
+];
+
+function SkillCard({
+  cat,
+  scrollYProgress,
+  idx,
+}: {
+  cat: (typeof skillCategories)[0];
+  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  idx: number;
+}) {
+  const [start, end] = cardScrollRanges[idx];
+  const x = useTransform(scrollYProgress, [start, end], cat.parallax.x as [number, number]);
+
   return (
-    <section id="skills" className="py-24 px-6 md:px-12 max-w-6xl mx-auto border-t border-white/10 relative z-10">
-      <div className="flex items-center gap-4 mb-16">
-        <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold font-display text-xl rotate-3">
-          {"</>"}
+    <motion.div
+      style={{ x }}
+      initial={{ opacity: 0, y: 30, scale: 0.94 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: false, amount: 0.15 }}
+      transition={{
+        delay: (idx % 3) * 0.08,
+        duration: 0.55,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
+      className="card-base p-6 flex flex-col gap-5 transition-all duration-300 hover:border-white/20 hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.05)]"
+    >
+      {/* Category header */}
+      <div className="flex items-center gap-3">
+        <div className={`w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center ${cat.color}`}>
+          <cat.Icon size={17} />
         </div>
-        <h2 className="text-3xl md:text-5xl font-black tracking-tight">Skills & Tech Stack</h2>
+        <h3 className="text-sm font-bold text-white font-display">{cat.title}</h3>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {skillCategories.map((category, idx) => (
-          <motion.div 
+      {/* Skill pills */}
+      <div className="flex flex-wrap gap-1.5">
+        {cat.skills.map((skill) => (
+          <span key={skill} className="skill-tag">
+            {skill}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+export function Skills() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Heading — RIGHT → LEFT (opposite of About which goes left→right)
+  const headingX = useTransform(scrollYProgress, [0, 0.25], [35, 0]);
+  const headingOpacity = useTransform(scrollYProgress, [0, 0.18], [0, 1]);
+
+  // Decorative background — moves UP as you scroll (parallax depth)
+  const bgY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+
+  return (
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="section-standard overflow-hidden"
+      aria-labelledby="skills-heading"
+    >
+      {/* Background parallax glow */}
+      <motion.div
+        className="absolute left-0 top-1/2 w-72 h-72 bg-violet-950/20 rounded-full blur-[100px] pointer-events-none -translate-y-1/2"
+        style={{ y: bgY }}
+        aria-hidden="true"
+      />
+
+      {/* Heading — RIGHT → LEFT */}
+      <motion.div
+        style={{ x: headingX, opacity: headingOpacity }}
+        className="mb-14"
+      >
+        <p className="section-label">Expertise</p>
+        <h2 id="skills-heading" className="section-heading">Skills & Tech Stack</h2>
+      </motion.div>
+
+      {/* Grid — each card has its own directional parallax */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {skillCategories.map((cat, idx) => (
+          <SkillCard
             key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
-            className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 hover:bg-white/[0.04] transition-colors"
-          >
-            <h3 className="text-lg font-bold text-white mb-6 font-display border-b border-white/10 pb-4">{category.title}</h3>
-            <div className="flex flex-wrap gap-2 group">
-              {category.skills.map((skill, i) => (
-                <span 
-                  key={i} 
-                  className="bg-black border border-white/10 text-gray-300 text-sm py-1.5 px-4 rounded-full transition-colors group-hover:border-white/20"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+            cat={cat}
+            scrollYProgress={scrollYProgress}
+            idx={idx}
+          />
         ))}
       </div>
     </section>

@@ -1,45 +1,63 @@
 YUAN NATA NUGRAHA
-+62 8973860060 | nyuannata@gmail.com | https://id.jobstreet.com/id/profiles/yuannata-nugrahab1MHgJC0BJ | https://github.com/nyuannata
-Bekasi, Bekasi, Jawa Barat, 17412
-My Name is Yuan and currently livin in Bekasi. I am a motivated Python and data focused developer with
-hands on experience in system logic, automation concepts, and technical projects. I am comfortable
-working with Python, basic data analysis, and problem solving tasks. I am open to freelance projects
-involving scripting, data processing, and technical support, and I am committed to delivering reliable and
-well structured solutions.
-Internship Experience
-Sriwijaya University - Palembang, Indonesia Feb 2020 – Mar 2020
-Laboratory Intern – Sriwijaya University
- Operated and monitored 3D printing processes
- Understood detailed 3D printer system workflows and configurations
- Assisted in basic troubleshooting and hardware maintenance
-Astra Credit Companies - Jakarta, Indonesia Maret 2026 - Sep 2026
- Operated Training data recording to text with a thousand data voices centre
- Operated raspberry pi 5 to capture plate number with GPS SIM module 
- Making some project like RAG, portofolio chatbot, whisper v3 large, and YOLO 
-Education
-Universitas Gunadarma - Bekasi, Indonesia Oct 2024 - present
-Bachelor in Computer System, 3.45/4.00
-Organizational Experience
-HIMPUNAN MAHASISWA JAMBI (HIMAJA) SRIWIJAYA UNIVERSITY – Palembang, Indonesia Jan 2018 - Feb 2020
-CHARITY LIVESTREAM COMMITTEE – Streamer Channel GAGITUSIL Jun 2025
-(Moderator & Equipment | Volunteer)
- Selected as a committee member based on previous experience as a livestream moderator.
- Responsible for managing and preparing event equipment.
- Conducted event documentation through photo and video shooting.
- Carried out surveys of orphanages as potential charity beneficiaries.
-Skills
-Technical Skills: Python Programming (basic to intermediate), Data Analysis Fundamentals, SQL (basic querying), Machine Learning
-Fundamentals, Data preprocessing & Feature Engineering (basic), Cloud Computing Fundamentals (AWS, Google Cloud, Microsoft
-Azure), Hardware & System Integration, Basic Automation & Control Logic, Mikrokontroler (Arduino, ESP32), Basic Website (HTML,
-CSS, JavaScript), Desain dan Perakitan Robot (Line Follower, Wall Follower, Mobile Robot), Keamanan Jaringan Komputer.
-Soft Skills: Analytical Thinking, Problem Solving, Teamwork & Collaboration, Communication, Fast Learner & Self Motivated
-Certification
- Dasar Google Cloud dicoding Indonesia October 2025
- Aplikasi Gen AI Microsoft Azure dicoding Indonesia October 2025
- Dasar Cloud dan Gen AI di AWS dicoding Indonesia October 2025
- Machine Learning Basic dicoding Indonesia October 2025
- Penerapan Data Science dengan Microsoft Fabric dicoding Indonesia October 2025
- Dasar AI dicoding indonesia September 2025
- Data Science dicoding indonesia September 2025
- Structured Query Language (SQL) dicoding Indonesia September 2025
- Pemrograman dengan Python dicoding Indonesia September 2025
+Positioning: AI Engineer, Machine Learning Developer, Generative AI Specialist, NLP Engineer
+Email: nyuannata@gmail.com
+Phone: +62 8973860060
+Location: Bekasi, Jawa Barat, Indonesia
+LinkedIn: https://www.linkedin.com/in/yuan-nata-nugraha-590212361/
+GitHub: https://github.com/nyuannata
+
+SUMMARY:
+Yuan Nata Nugraha adalah praktisi AI dan Machine Learning yang berfokus pada pembangunan sistem AI handal — mulai dari pipeline Automatic Speech Recognition (ASR), aplikasi Generative AI & Retrieval-Augmented Generation (RAG), hingga sistem monitoring kesehatan berbasis IoT. Berpengalaman langsung dalam evaluasi akurasi model pada infrastruktur GPU (~42 GB VRAM) dan pengembangan aplikasi web AI.
+
+WORK EXPERIENCE:
+1. Astra Credit Companies (ACC) — Jakarta, Indonesia
+   Role: AI Project Intern
+   Period: Maret 2026 – Sekarang (Present)
+   Pencapaian & Proyek:
+   - Automatic Speech Recognition: Membangun pipeline ASR menggunakan OpenAI Whisper Large-v3 pada infrastruktur GPU ~42 GB VRAM. Melakukan transkripsi manual dan anotasi ground-truth pada 125 rekaman audio untuk evaluasi akurasi transkripsi secara sistematis.
+   - RAG Information Retrieval App: Mengembangkan aplikasi web Retrieval-Augmented Generation (RAG) menggunakan Google Gemini API untuk document-grounded question answering yang akurat dan berbasis konteks.
+   - AI Portfolio Chatbot: Mengembangkan AI chatbot interaktif untuk website portofolio menggunakan Google Gemini API dengan prompt engineering ketat, batasan domain, dan guardrails agar jawaban tetap relevan dan akurat.
+   - Business & Inventory Web Application: Mengembangkan sistem manajemen bisnis dan inventaris lengkap (pesanan, stok, pemasukan, pengeluaran, faktur) dengan kalkulasi otomatis, backend Firebase real-time, dan export laporan Excel.
+   - LLM Model Inventory & Documentation: Mengelola inventaris dan dokumentasi model LLM komprehensif, mengevaluasi kapabilitas AI melalui Microsoft Azure AI Foundry dan platform Google AI.
+
+2. Universitas Sriwijaya — Palembang, Indonesia
+   Role: Laboratory Intern
+   Period: September 2019 – Oktober 2019
+   Pencapaian: Mengoperasikan dan memantau proses 3D printing untuk prototipe, memahami alur kerja dan konfigurasi perangkat keras 3D printer, serta membantu pemeliharaan perangkat keras.
+
+3. Streamer Channel GAGITUSIL
+   Role: Charity Livestream Committee (Moderator & Equipment | Volunteer)
+   Period: Juni 2025
+   Pencapaian: Manajemen peralatan acara, dokumentasi foto & video, serta survei panti asuhan penerima manfaat amal.
+
+EDUCATION:
+- Universitas Gunadarma (Bekasi, Indonesia)
+  Program: Sarjana (S1) Sistem Komputer (Bachelor's in Computer Systems)
+  Periode: Agustus 2024 – Agustus 2026
+  Fokus Akademik: Artificial Intelligence, Machine Learning, Internet of Things, Software Development
+  Skripsi / Thesis: Implementasi Random Forest pada Sistem Monitoring Kesehatan Berbasis IoT untuk Klasifikasi Kondisi Pernapasan
+
+KEY PROJECTS:
+1. IoT-Based Health Monitoring System (Thesis Project): Sistem monitoring pernapasan berbasis IoT dengan algoritma Random Forest untuk klasifikasi kondisi pernapasan menggunakan ESP32, Raspberry Pi, MQTT, Python.
+2. RAG Information Retrieval Application: Web app Generative AI dengan Google Gemini API untuk pencarian dokumen dan tanya-jawab kontekstual.
+3. AI Portfolio Chatbot: Chatbot asisten AI domain-restricted berbasis Google Gemini API dengan prompt engineering cermat.
+4. Business & Inventory Web Application: Aplikasi web manajemen pesanan, stok, keuangan, dan faktur terintegrasi Firebase dan Excel export.
+5. ASR Speech Transcription Pipeline: Pipeline evaluasi transkripsi ucapan Whisper Large-v3 pada 125 rekaman audio menggunakan GPU ~42 GB VRAM.
+
+SKILLS & TECH STACK:
+- Programming & Data: Python, C++, SQL, Pandas, NumPy
+- AI / Machine Learning: Artificial Intelligence, Machine Learning, Generative AI, Large Language Models (LLM), Natural Language Processing (NLP), Automatic Speech Recognition (ASR), Model Evaluation, Computer Vision
+- AI & ML Tools: OpenAI Whisper (Whisper Large-v3), Google Gemini API, Retrieval-Augmented Generation (RAG), Hugging Face Transformers, PyTorch, YOLOv8
+- Web & App Development: HTML, CSS, JavaScript, React, Firebase, REST API
+- Cloud & Platforms: Microsoft Azure AI Foundry, Google AI Platforms, Git, GitHub
+- IoT & Hardware: ESP32, Raspberry Pi, MQTT
+
+CERTIFICATIONS (Dicoding Indonesia):
+1. Membangun Aplikasi Gen AI dengan Microsoft Azure (2025)
+2. Dasar Data Science (2025)
+3. Course Machine Learning (2025)
+4. Belajar Penerapan Data Science dengan Microsoft Fabric (2025)
+5. Belajar Dasar AI (2025)
+6. Dasar Cloud dan GenAI di AWS (2025)
+7. Pemrograman dengan Python (2025)
+8. Belajar Dasar SQL (2025)

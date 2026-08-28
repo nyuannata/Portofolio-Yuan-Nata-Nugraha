@@ -1,122 +1,187 @@
-import { motion } from "motion/react";
-import { Monitor, Server, Bot, Code2, PlaySquare, Database, Cpu, Terminal } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { ArrowDown, Brain, Cpu, Layers, Bot, Wand2, Mic2 } from "lucide-react";
+
+const floatingIcons = [
+  { Icon: Brain,  color: "text-violet-400/70", glow: "rgba(167,139,250,0.3)", x: "3%",  y: "14%", size: 32, delay: 0,   floatY: -10, dur: 4.2 },
+  { Icon: Cpu,    color: "text-amber-400/70",  glow: "rgba(251,191,36,0.3)",  x: "38%", y: "10%", size: 28, delay: 0.3, floatY: 10,  dur: 4.8 },
+  { Icon: Bot,    color: "text-green-400/70",  glow: "rgba(74,222,128,0.3)",  x: "48%", y: "32%", size: 32, delay: 0.6, floatY: -10, dur: 3.6 },
+  { Icon: Mic2,   color: "text-cyan-400/70",   glow: "rgba(34,211,238,0.3)",  x: "2%",  y: "74%", size: 26, delay: 1.4, floatY: -8,  dur: 4.4 },
+  { Icon: Layers, color: "text-blue-400/70",   glow: "rgba(96,165,250,0.3)",  x: "48%", y: "68%", size: 32, delay: 1.0, floatY: -12, dur: 5.0 },
+  { Icon: Wand2,  color: "text-pink-400/70",   glow: "rgba(244,114,182,0.3)", x: "44%", y: "86%", size: 26, delay: 0.8, floatY: 8,   dur: 3.8 },
+];
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax transforms
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.6], [0, 0.7]);
+  const tagsY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
+
   return (
-    <section className="relative min-h-[90vh] flex items-center px-4 overflow-hidden pt-20">
-      
-      {/* Background Image on the right half blending into black */}
-      <div className="absolute right-0 top-0 w-full md:w-1/2 h-full z-0 opacity-50 md:opacity-90">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/profile.jpg')", backgroundPosition: 'center top' }}
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center overflow-hidden"
+      aria-label="Hero section"
+    >
+      {/* === PARALLAX BACKGROUND IMAGE === */}
+      <motion.div
+        className="absolute right-0 top-0 w-full md:w-[55%] h-full z-0 parallax-layer"
+        style={{ y: bgY }}
+        aria-hidden="true"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: "url('/profile.jpg')",
+            backgroundPosition: "center 15%",
+          }}
         />
-        {/* Gradient overlay to blend the left edge of the image into the black background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
-        {/* Gradient overlay to blend the bottom edge into the next section */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+        {/* Blend left → right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
+        {/* Vignette bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+        {/* Subtle top vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
+        {/* Cinematic overlay on scroll */}
+        <motion.div
+          className="absolute inset-0 bg-black"
+          style={{ opacity: overlayOpacity }}
+        />
+      </motion.div>
+
+      {/* === FLOATING DECORATIVE ICONS — positioned clear of text === */}
+      <div className="absolute inset-0 z-0 pointer-events-none hidden xl:block" aria-hidden="true">
+        {floatingIcons.map(({ Icon, color, glow, x, y, size, delay, floatY, dur }, i) => (
+          <motion.div
+            key={i}
+            className={`absolute ${color}`}
+            style={{ left: x, top: y }}
+            animate={{ y: [0, floatY, 0] }}
+            transition={{ repeat: Infinity, duration: dur, ease: "easeInOut", delay }}
+          >
+            <div className="relative flex items-center justify-center">
+              <div
+                className="absolute inset-0 rounded-full blur-xl opacity-20"
+                style={{ background: glow, width: size * 1.8, height: size * 1.8, margin: `-${size * 0.4}px` }}
+              />
+              <Icon size={size} strokeWidth={1.2} className="relative drop-shadow-md" />
+            </div>
+          </motion.div>
+        ))}
       </div>
 
-      <div className="w-full relative z-10 flex justify-start">
+      {/* === MAIN CONTENT === */}
+      <div className="relative z-10 w-full px-6 md:px-16 lg:px-24 pt-20">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-left w-full md:w-1/2 pl-4 md:pl-16 lg:pl-24"
+          className="max-w-2xl parallax-layer"
+          style={{ y: textY }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="relative inline-block mb-6">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white">
-              Hi, I'm Yuan
+          {/* Pre-heading label */}
+          <motion.p
+            className="section-label mb-5"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+          >
+            AI Engineer · Bekasi, Indonesia
+          </motion.p>
+
+          {/* Main heading */}
+          <motion.div
+            className="relative mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-[0.9]">
+              Hi,<br />I'm Yuan
             </h1>
-            <motion.div 
-              initial={{ scale: 0, rotate: -10 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ delay: 0.5, type: "spring" }}
-              className="absolute -bottom-2 -right-4 bg-[#FFD600] text-black text-sm md:text-base font-bold py-1 px-4 rounded-md transform rotate-3"
+            <motion.div
+              initial={{ scale: 0, rotate: -15 }}
+              animate={{ scale: 1, rotate: 3 }}
+              transition={{ delay: 0.7, type: "spring", stiffness: 300, damping: 20 }}
+              className="absolute -bottom-3 -right-2 md:right-auto md:left-[calc(100%-8rem)] bg-[#FFD600] text-black text-xs md:text-sm font-black py-1 px-3 rounded-md font-display"
             >
               Yuan N.
             </motion.div>
-          </div>
-          
-          <h2 className="text-xl md:text-3xl lg:text-4xl text-gray-400 font-medium max-w-2xl leading-tight mt-4 drop-shadow-md">
-            Python & Data-focused developer automating systems & exploring AI.
-          </h2>
+          </motion.div>
+
+          {/* Sub-heading */}
+          <motion.h2
+            className="text-lg md:text-2xl lg:text-3xl text-gray-400 font-medium max-w-lg leading-snug mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.7 }}
+          >
+            Building{" "}
+            <span className="text-white font-semibold">AI systems</span>{" "}
+            — from speech recognition pipelines to generative AI applications.
+          </motion.h2>
+
+          {/* Tech tags */}
+          <motion.div
+            className="flex flex-wrap gap-2 mt-8 parallax-layer"
+            style={{ y: tagsY }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            aria-label="Key technologies"
+          >
+            {["Generative AI", "LLM", "RAG", "ASR / Whisper", "PyTorch", "Google Gemini"].map((tag) => (
+              <span
+                key={tag}
+                className="skill-tag text-xs"
+              >
+                {tag}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div
+            className="flex flex-wrap gap-4 mt-10"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75, duration: 0.6 }}
+          >
+            <a
+              href="#projects"
+              onClick={(e) => { e.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }}
+              className="inline-flex items-center gap-2 bg-[#E8262A] hover:bg-[#c41f23] text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(232,38,42,0.4)]"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+              className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:bg-white/5"
+            >
+              Contact Me
+            </a>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* Floating decorative elements mimicking the 3D objects */}
-      <motion.div 
-        animate={{ y: [0, -15, 0] }} 
-        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-        className="absolute left-[5%] bottom-[5%] text-blue-500 hidden lg:block"
+      {/* Scroll indicator */}
+      <motion.button
+        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full border border-white/10 flex items-center justify-center z-20 text-gray-500 hover:text-white hover:border-white/30 transition-colors hidden md:flex cursor-pointer"
+        aria-label="Scroll to About section"
       >
-        <div className="relative w-48 h-48 flex items-center justify-center">
-          <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full" />
-          <Monitor size={120} strokeWidth={1} className="relative z-10 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
-        </div>
-      </motion.div>
-
-      <motion.div 
-        animate={{ y: [0, -10, 0] }} 
-        transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-        className="absolute top-[25%] right-[45%] text-green-400 hidden xl:block opacity-60 z-10"
-      >
-        <div className="relative w-24 h-24 flex items-center justify-center">
-          <Bot size={60} strokeWidth={1.5} className="relative z-10 drop-shadow-[0_0_15px_rgba(74,222,128,0.5)]" />
-        </div>
-      </motion.div>
-
-      <motion.div 
-        animate={{ y: [0, 10, 0], rotate: [0, 5, 0] }} 
-        transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1 }}
-        className="absolute top-[20%] left-[5%] text-purple-500 hidden xl:block opacity-70 z-10"
-      >
-        <div className="relative w-20 h-20 flex items-center justify-center">
-          <Database size={50} strokeWidth={1.5} className="relative z-10 drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
-        </div>
-      </motion.div>
-
-      <motion.div 
-        animate={{ y: [0, -12, 0], rotate: [0, -5, 0] }} 
-        transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut", delay: 0.2 }}
-        className="absolute top-[15%] left-[28%] text-amber-500 hidden lg:block opacity-60 z-10"
-      >
-        <div className="relative w-16 h-16 flex items-center justify-center">
-          <Cpu size={45} strokeWidth={1.5} className="relative z-10 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
-        </div>
-      </motion.div>
-
-      <motion.div 
-        animate={{ y: [0, 15, 0] }} 
-        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1.5 }}
-        className="absolute bottom-[35%] left-[32%] text-cyan-400 hidden xl:block opacity-50 z-10"
-      >
-        <div className="relative w-24 h-24 flex items-center justify-center">
-          <Terminal size={55} strokeWidth={1.5} className="relative z-10 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]" />
-        </div>
-      </motion.div>
-
-      {/* Bottom Center Character Placeholder / Stylized Face or Icon */}
-      <motion.div 
-        initial={{ y: 150 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
-        className="absolute bottom-[-20px] left-[20%] z-10 text-rose-400 mix-blend-screen opacity-50 block lg:hidden"
-      >
-          <Code2 size={150} strokeWidth={0.5} />
-      </motion.div>
-
-      {/* Scroll Down Indicator */}
-      <motion.div 
-        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        animate={{ y: [0, 8, 0] }} 
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center z-20 cursor-pointer hover:border-blue-500 hover:text-blue-500 transition-colors hidden md:flex text-gray-500"
-      >
-        <svg fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-current">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </motion.div>
+        <ArrowDown size={16} />
+      </motion.button>
     </section>
   );
 }

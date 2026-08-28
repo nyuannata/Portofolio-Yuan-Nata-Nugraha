@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const footerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"],
+  });
+
+  // ⚠️ FIX: Opacity is handled by whileInView (reliable at page bottom).
+  // useScroll is used ONLY for Y/X transform (visual parallax depth), NOT opacity.
+  // This prevents elements from staying transparent when user can't scroll further.
+
+  const addressY = useTransform(scrollYProgress, [0, 1], [30, 0]);
+  const mapX = useTransform(scrollYProgress, [0, 1], [40, 0]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [15, 0]);
+
   return (
-    <footer className="border-t border-white/10 py-12 relative z-10 bg-black">
+    <footer ref={footerRef} className="border-t border-white/10 py-12 relative z-10 bg-black overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 mb-8">
-          {/* Address Section */}
-          <div className="flex-1 text-center md:text-left">
+
+          {/* Address — BOTTOM→TOP parallax, opacity via whileInView */}
+          <motion.div
+            style={{ y: addressY }}
+            initial={{ opacity: 0, y: 20, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="flex-1 text-center md:text-left"
+          >
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center justify-center md:justify-start gap-2">
               <MapPin className="text-blue-500" size={20} />
               Alamat Domisili
@@ -17,11 +40,19 @@ export const Footer: React.FC = () => {
               Jatibening, Pondok Gede<br />
               Bekasi Selatan
             </p>
-          </div>
+          </motion.div>
 
-          {/* Map Section */}
-          <div className="w-full md:w-auto flex justify-center">
-            <div className="h-32 w-full max-w-[250px] md:w-64 rounded-xl overflow-hidden border border-zinc-800 shadow-lg relative group bg-zinc-900">
+          {/* Map — RIGHT→LEFT parallax, opacity via whileInView */}
+          <motion.div
+            style={{ x: mapX }}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -3, scale: 1.02, transition: { duration: 0.2 } }}
+            className="w-full md:w-auto flex justify-center"
+          >
+            <div className="h-32 w-full max-w-[250px] md:w-64 rounded-xl overflow-hidden border border-zinc-800 shadow-lg relative bg-zinc-900 transition-all hover:border-zinc-700">
               <iframe
                 title="Google Maps Location"
                 src="https://www.google.com/maps?q=jl.kusuma+indah+blok.A19+no.32,+jatibening,+pondokgede,+bekasi+selatan&output=embed"
@@ -33,13 +64,21 @@ export const Footer: React.FC = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="text-center text-gray-500 text-sm border-t border-white/5 pt-8">
+        {/* Copyright — upward parallax, opacity via whileInView */}
+        <motion.div
+          style={{ y: copyY }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center text-gray-500 text-sm border-t border-white/5 pt-8"
+        >
           <p>&copy; {new Date().getFullYear()} Yuan Nata Nugraha. All rights reserved.</p>
-          <p className="mt-2 text-xs opacity-50">Built with React, Tailwind & Motion</p>
-        </div>
+          <p className="mt-2 text-xs opacity-50">Built with React, Tailwind CSS &amp; Framer Motion</p>
+        </motion.div>
       </div>
     </footer>
   );
