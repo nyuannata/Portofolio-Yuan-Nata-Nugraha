@@ -67,7 +67,7 @@ export function Header() {
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
           className="flex items-center gap-2.5 group shrink-0"
-          aria-label="Yuan Nata Nugraha — Home"
+          aria-label="Yuan Nata Nugraha Home"
         >
           <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden border-2 border-[#E8262A] shadow-[0_0_12px_rgba(232,38,42,0.35)] transition-transform group-hover:scale-110 duration-300 shrink-0 bg-zinc-900">
             <img
