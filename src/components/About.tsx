@@ -31,7 +31,7 @@ export function About() {
           {/* Profile Photo */}
           <div className="relative w-32 h-40 md:w-36 md:h-48 rounded-2xl overflow-hidden border-2 border-[#E8262A]/40 shadow-[0_10px_30px_rgba(232,38,42,0.2)] mt-6 mb-6 group">
             <img
-              src="/profile.jpg"
+              src="/avatar.jpg"
               alt="Yuan Nata Nugraha"
               className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
