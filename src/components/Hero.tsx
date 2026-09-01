@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, Brain, Cpu, Layers, Bot, Wand2, Mic2, FileDown } from "lucide-react";
+import { ArrowDown, Brain, Cpu, Layers, Bot, Wand2, Mic2, FileDown, Linkedin } from "lucide-react";
 import { SearchBar } from "./SearchBar";
 
 const floatingIcons = [
@@ -177,6 +177,16 @@ export function Hero() {
               className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-gray-300 hover:text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:bg-white/5"
             >
               Contact Me
+            </a>
+            <a
+              href="https://www.linkedin.com/in/yuan-nata-nugraha-590212361/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#0A66C2]/15 hover:bg-[#0A66C2] text-white font-semibold text-sm px-5 py-3 rounded-lg transition-all duration-200 hover:scale-105 border border-[#0A66C2]/30 hover:border-[#0A66C2] shadow-md"
+              title="Kunjungi Profil LinkedIn Yuan Nata Nugraha"
+            >
+              <Linkedin size={17} className="text-[#0A66C2] group-hover:text-white" />
+              <span>LinkedIn</span>
             </a>
           </motion.div>
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, FileDown, Search } from "lucide-react";
+import { Menu, X, FileDown, Search, Linkedin } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -83,7 +83,7 @@ export function Header() {
         </a>
 
         {/* Desktop Nav + Action */}
-        <div className="hidden lg:flex items-center gap-2.5 xl:gap-3.5">
+        <div className="hidden lg:flex items-center gap-2.5 xl:gap-3">
           <nav className="flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map((link) => {
               const id = link.href.replace("#", "");
@@ -129,6 +129,18 @@ export function Header() {
           </button>
 
           <a
+            href="https://www.linkedin.com/in/yuan-nata-nugraha-590212361/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-white rounded-lg hover:bg-[#0A66C2]/15 border border-white/10 hover:border-[#0A66C2]/50 transition-all duration-200"
+            title="LinkedIn Profile"
+            aria-label="LinkedIn Profile"
+          >
+            <Linkedin size={14} className="text-[#0A66C2]" />
+            <span className="hidden xl:inline">LinkedIn</span>
+          </a>
+
+          <a
             href="/CV.pdf"
             download="CV_Yuan_Nata_Nugraha.pdf"
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#E8262A]/10 hover:bg-[#E8262A] text-white border border-[#E8262A]/30 hover:border-[#E8262A] transition-all duration-200 hover:scale-105 shadow-sm"
@@ -141,6 +153,15 @@ export function Header() {
 
         {/* Mobile Right Side: Quick CV + Hamburger */}
         <div className="flex lg:hidden items-center gap-2">
+          <a
+            href="https://www.linkedin.com/in/yuan-nata-nugraha-590212361/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-8 h-8 text-xs font-medium rounded-lg bg-[#0A66C2]/15 text-white border border-[#0A66C2]/30"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={14} className="text-[#0A66C2]" />
+          </a>
           <a
             href="/CV.pdf"
             download="CV_Yuan_Nata_Nugraha.pdf"
@@ -215,7 +236,16 @@ export function Header() {
                 );
               })}
             </nav>
-            <div className="p-4 border-t border-white/5 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]">
+            <div className="p-4 border-t border-white/5 space-y-2.5 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]">
+              <a
+                href="https://www.linkedin.com/in/yuan-nata-nugraha-590212361/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg bg-[#0A66C2]/15 text-white text-sm font-semibold border border-[#0A66C2]/30 hover:bg-[#0A66C2] transition-all"
+              >
+                <Linkedin size={16} className="text-[#0A66C2]" />
+                <span>Lihat Profil LinkedIn</span>
+              </a>
               <a
                 href="/CV.pdf"
                 download="CV_Yuan_Nata_Nugraha.pdf"
