@@ -31,7 +31,7 @@ const searchDatabase: SearchItem[] = [
     category: "Project",
     subtitle: "Thesis Project — Respiratory Condition Classifier with Random Forest",
     targetId: "projects",
-    keywords: ["iot", "health", "respiratory", "random forest", "esp32", "raspberry pi", "mqtt", "skripsi", "thesis", "python", "machine learning"],
+    keywords: ["project", "projects", "proyek", "iot", "health", "respiratory", "random forest", "esp32", "raspberry pi", "mqtt", "skripsi", "thesis", "python", "machine learning"],
   },
   {
     id: "p2",
@@ -39,7 +39,7 @@ const searchDatabase: SearchItem[] = [
     category: "Project",
     subtitle: "Web-based Generative AI App with Google Gemini API",
     targetId: "projects",
-    keywords: ["rag", "retrieval augmented generation", "gemini", "google gemini", "llm", "generative ai", "web app", "acc", "python"],
+    keywords: ["project", "projects", "proyek", "rag", "retrieval augmented generation", "gemini", "google gemini", "llm", "generative ai", "web app", "acc", "python"],
   },
   {
     id: "p3",
@@ -47,7 +47,7 @@ const searchDatabase: SearchItem[] = [
     category: "Project",
     subtitle: "Domain-Restricted Conversational AI",
     targetId: "projects",
-    keywords: ["chatbot", "ai assistant", "gemini", "prompt engineering", "domain restriction", "conversational ai", "acc"],
+    keywords: ["project", "projects", "proyek", "chatbot", "ai assistant", "gemini", "prompt engineering", "domain restriction", "conversational ai", "acc"],
   },
   {
     id: "p4",
@@ -55,7 +55,7 @@ const searchDatabase: SearchItem[] = [
     category: "Project",
     subtitle: "Full-Featured Management System with Firebase",
     targetId: "projects",
-    keywords: ["business", "inventory", "management", "firebase", "excel export", "orders", "invoices", "stock", "acc"],
+    keywords: ["project", "projects", "proyek", "business", "inventory", "management", "firebase", "excel export", "orders", "invoices", "stock", "acc"],
   },
   {
     id: "p5",
@@ -63,7 +63,7 @@ const searchDatabase: SearchItem[] = [
     category: "Project",
     subtitle: "Whisper Large-v3 Evaluation System on ~42 GB VRAM GPU",
     targetId: "projects",
-    keywords: ["asr", "speech", "whisper", "whisper large-v3", "transcription", "audio", "gpu", "vram", "42 gb", "evaluation", "acc", "ground truth"],
+    keywords: ["project", "projects", "proyek", "asr", "speech", "whisper", "whisper large-v3", "transcription", "audio", "gpu", "vram", "42 gb", "evaluation", "acc", "ground truth"],
   },
 
   // Skills
@@ -73,7 +73,7 @@ const searchDatabase: SearchItem[] = [
     category: "Skill",
     subtitle: "Automatic Speech Recognition & Model Evaluation",
     targetId: "skills",
-    keywords: ["whisper", "asr", "audio", "transcription", "speech to text", "speech recognition"],
+    keywords: ["skill", "skills", "keahlian", "whisper", "asr", "audio", "transcription", "speech to text", "speech recognition"],
   },
   {
     id: "s2",
@@ -81,7 +81,7 @@ const searchDatabase: SearchItem[] = [
     category: "Skill",
     subtitle: "Generative AI, Large Language Models & Prompt Engineering",
     targetId: "skills",
-    keywords: ["gemini", "google ai", "rag", "retrieval", "llm", "generative ai", "prompt engineering"],
+    keywords: ["skill", "skills", "keahlian", "gemini", "google ai", "rag", "retrieval", "llm", "generative ai", "prompt engineering"],
   },
   {
     id: "s3",
@@ -89,7 +89,7 @@ const searchDatabase: SearchItem[] = [
     category: "Skill",
     subtitle: "Model Training, Random Forest, Data Processing (Pandas, NumPy)",
     targetId: "skills",
-    keywords: ["python", "pytorch", "machine learning", "ml", "random forest", "pandas", "numpy", "yolov8", "scikit-learn"],
+    keywords: ["skill", "skills", "keahlian", "python", "pytorch", "machine learning", "ml", "random forest", "pandas", "numpy", "yolov8", "scikit-learn"],
   },
   {
     id: "s4",
@@ -97,7 +97,7 @@ const searchDatabase: SearchItem[] = [
     category: "Skill",
     subtitle: "ESP32, Raspberry Pi, MQTT, Sensor Integration",
     targetId: "skills",
-    keywords: ["iot", "esp32", "raspberry pi", "mqtt", "hardware", "sensors", "microcontroller"],
+    keywords: ["skill", "skills", "keahlian", "iot", "esp32", "raspberry pi", "mqtt", "hardware", "sensors", "microcontroller"],
   },
   {
     id: "s5",
@@ -105,7 +105,7 @@ const searchDatabase: SearchItem[] = [
     category: "Skill",
     subtitle: "React, TypeScript, Tailwind CSS, Firebase, REST API, Azure AI Foundry",
     targetId: "skills",
-    keywords: ["react", "typescript", "javascript", "tailwind", "firebase", "azure", "cloud", "rest api", "html", "css"],
+    keywords: ["skill", "skills", "keahlian", "react", "typescript", "javascript", "tailwind", "firebase", "azure", "cloud", "rest api", "html", "css"],
   },
 
   // Certifications
@@ -115,7 +115,7 @@ const searchDatabase: SearchItem[] = [
     category: "Certification",
     subtitle: "Dicoding Indonesia (2025)",
     targetId: "certifications",
-    keywords: ["azure", "gen ai", "generative ai", "microsoft", "dicoding", "sertifikat", "certificate"],
+    keywords: ["certification", "certifications", "sertifikat", "certificate", "azure", "gen ai", "generative ai", "microsoft", "dicoding"],
   },
   {
     id: "c2",
@@ -123,7 +123,7 @@ const searchDatabase: SearchItem[] = [
     category: "Certification",
     subtitle: "Dicoding Indonesia (2025)",
     targetId: "certifications",
-    keywords: ["machine learning", "data science", "dicoding", "sertifikat", "certificate"],
+    keywords: ["certification", "certifications", "sertifikat", "certificate", "machine learning", "data science", "dicoding"],
   },
   {
     id: "c3",
@@ -131,7 +131,7 @@ const searchDatabase: SearchItem[] = [
     category: "Certification",
     subtitle: "Dicoding Indonesia (2025)",
     targetId: "certifications",
-    keywords: ["microsoft fabric", "fabric", "data science", "dicoding", "sertifikat"],
+    keywords: ["certification", "certifications", "sertifikat", "certificate", "microsoft fabric", "fabric", "data science", "dicoding"],
   },
   {
     id: "c4",
@@ -139,7 +139,7 @@ const searchDatabase: SearchItem[] = [
     category: "Certification",
     subtitle: "Dicoding Indonesia (2025)",
     targetId: "certifications",
-    keywords: ["aws", "cloud", "genai", "amazon", "dicoding", "sertifikat"],
+    keywords: ["certification", "certifications", "sertifikat", "certificate", "aws", "cloud", "genai", "amazon", "dicoding"],
   },
 
   // Experience & Education
@@ -149,7 +149,7 @@ const searchDatabase: SearchItem[] = [
     category: "Experience",
     subtitle: "Maret 2026 – Sekarang (Whisper Large-v3, RAG Gemini, GPU 42GB)",
     targetId: "experience",
-    keywords: ["astra", "acc", "intern", "internship", "experience", "pengalaman kerja", "whisper", "rag"],
+    keywords: ["experience", "pengalaman", "magang", "intern", "internship", "astra", "acc", "whisper", "rag", "project"],
   },
   {
     id: "ed1",
@@ -157,7 +157,7 @@ const searchDatabase: SearchItem[] = [
     category: "Education",
     subtitle: "Bachelor's Degree in Computer Systems (2024 – 2026)",
     targetId: "education",
-    keywords: ["gunadarma", "kuliah", "education", "pendidikan", "sarjana", "s1", "sistem komputer"],
+    keywords: ["education", "pendidikan", "kuliah", "universitas", "gunadarma", "sarjana", "s1", "sistem komputer"],
   },
 ];
 
@@ -291,8 +291,9 @@ export function SearchBar() {
     ? searchDatabase.filter((item) => {
         const titleMatch = item.title.toLowerCase().includes(cleanQuery);
         const subMatch = item.subtitle?.toLowerCase().includes(cleanQuery);
+        const catMatch = item.category.toLowerCase().includes(cleanQuery);
         const keywordMatch = item.keywords.some((k) => k.toLowerCase().includes(cleanQuery));
-        return titleMatch || subMatch || keywordMatch;
+        return titleMatch || subMatch || catMatch || keywordMatch;
       })
     : [];
 
@@ -400,20 +401,29 @@ export function SearchBar() {
       <AnimatePresence>
         {isOpen && query.trim().length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+            initial={{ opacity: 0, y: 8, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-            className="absolute left-0 right-0 top-full mt-3 bg-zinc-950/95 backdrop-blur-xl border border-white/12 rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden z-50 max-h-[300px] sm:max-h-[380px] flex flex-col"
+            exit={{ opacity: 0, y: 8, scale: 0.98 }}
+            transition={{ duration: 0.18 }}
+            className="absolute left-0 right-0 top-full mt-2 bg-zinc-950/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-[0_25px_60px_-10px_rgba(0,0,0,0.95),0_0_20px_rgba(232,38,42,0.1)] overflow-hidden z-50 flex flex-col max-h-[380px]"
+            style={{ overscrollBehavior: 'contain' }}
           >
             {/* Header */}
-            <div className="px-4 py-2.5 border-b border-white/8 bg-zinc-900/60 flex items-center justify-between text-xs text-gray-400">
-              <span>Hasil untuk: <strong className="text-white">"{query}"</strong></span>
-              <span className="font-mono text-[11px]">{filteredResults.length} ditemukan</span>
+            <div className="px-4 py-2.5 border-b border-white/8 bg-zinc-900/70 flex items-center justify-between text-xs text-gray-400 shrink-0">
+              <span className="truncate mr-2">Hasil untuk: <strong className="text-white">"{query}"</strong></span>
+              <span className="font-mono text-[11px] bg-white/10 px-2 py-0.5 rounded-full text-gray-300 shrink-0">
+                {filteredResults.length} ditemukan
+              </span>
             </div>
 
-            {/* Results List */}
-            <div className="overflow-y-auto p-2 space-y-1 scrollbar-thin scrollbar-thumb-zinc-800">
+            {/* Results List - Guaranteed scrollable and properly sized */}
+            <div
+              className="flex-1 min-h-0 max-h-[260px] overflow-y-auto p-2 space-y-1.5 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-zinc-900 overscroll-contain"
+              style={{
+                WebkitOverflowScrolling: 'touch',
+                touchAction: 'pan-y',
+              }}
+            >
               {filteredResults.length > 0 ? (
                 filteredResults.map((item) => {
                   const Icon = categoryIcons[item.category];
@@ -423,14 +433,14 @@ export function SearchBar() {
                     <button
                       key={item.id}
                       onClick={() => handleSelectItem(item.targetId)}
-                      className="w-full flex items-start gap-3 p-3 rounded-xl hover:bg-white/8 transition-all text-left group cursor-pointer border border-transparent hover:border-white/10"
+                      className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-white/[0.02] hover:bg-white/10 transition-all text-left group cursor-pointer border border-white/5 hover:border-white/15"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                      <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:border-[#E8262A]/40 transition-all">
                         <Icon size={15} className="text-gray-300 group-hover:text-white" />
                       </div>
 
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-0.5">
+                        <div className="flex items-center gap-2">
                           <h4 className="text-sm font-semibold text-white truncate group-hover:text-[#E8262A] transition-colors">
                             {item.title}
                           </h4>
@@ -441,13 +451,13 @@ export function SearchBar() {
                           </span>
                         </div>
                         {item.subtitle && (
-                          <p className="text-xs text-gray-400 truncate">{item.subtitle}</p>
+                          <p className="text-xs text-gray-400 truncate mt-0.5">{item.subtitle}</p>
                         )}
                       </div>
 
                       <ArrowUpRight
                         size={14}
-                        className="text-gray-500 group-hover:text-white shrink-0 mt-1 transition-colors"
+                        className="text-gray-500 group-hover:text-white shrink-0 transition-colors"
                       />
                     </button>
                   );
@@ -463,7 +473,7 @@ export function SearchBar() {
             </div>
 
             {/* AI Assistant Quick Prompt Footer */}
-            <div className="p-2.5 bg-zinc-900/90 border-t border-white/8 flex items-center justify-between text-xs">
+            <div className="p-2.5 bg-zinc-900/90 border-t border-white/8 flex items-center justify-between text-xs shrink-0">
               <span className="text-gray-400 flex items-center gap-1.5 text-[11px]">
                 <Bot size={13} className="text-[#E8262A]" />
                 Ingin penjelasan mendalam?
@@ -471,7 +481,6 @@ export function SearchBar() {
               <button
                 onClick={() => {
                   setIsOpen(false);
-                  // Find chatbot button or dispatch trigger
                   const chatTrigger = document.querySelector('button[aria-label="Buka Chatbot AI"], button[aria-label="Tutup Chatbot"]') as HTMLButtonElement;
                   if (chatTrigger) chatTrigger.click();
                 }}
