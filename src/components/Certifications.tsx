@@ -413,13 +413,27 @@ export function Certifications() {
                 </div>
               </div>
 
+              {/* Mobile Quick Action Banner (Solusi untuk browser iOS/Android yang memblokir PDF iframe) */}
+              <div className="p-3 bg-zinc-900/90 border-b border-white/8 flex items-center justify-between text-xs sm:hidden shrink-0">
+                <span className="text-gray-300 text-[11px]">Pratinjau PDF di ponsel:</span>
+                <a
+                  href={modalCert.pdfPath}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#E8262A] text-white font-semibold text-xs shadow-sm hover:bg-[#c41f23] transition-colors"
+                >
+                  <span>Buka PDF Penuh</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+
               {/* PDF viewer */}
-              <div className="flex-1 min-h-0">
+              <div className="flex-1 min-h-0 bg-zinc-950 flex flex-col items-center justify-center relative overflow-hidden" style={{ minHeight: "350px" }}>
                 <iframe
                   src={`${modalCert.pdfPath}#view=FitH`}
                   title={modalCert.title}
                   className="w-full h-full"
-                  style={{ minHeight: "500px", border: "none" }}
+                  style={{ minHeight: "450px", border: "none" }}
                 />
               </div>
             </motion.div>

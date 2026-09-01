@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileDown, Search } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -61,84 +61,125 @@ export function Header() {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="w-full px-6 md:px-12 lg:px-16 flex justify-between items-center">
         {/* Logo */}
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="flex items-center gap-2.5 group"
+          className="flex items-center gap-2.5 group shrink-0"
           aria-label="Yuan Nata Nugraha — Home"
         >
-          <div className="w-8 h-8 rounded-full bg-[#E8262A] flex items-center justify-center text-white font-black text-sm font-display tracking-tight transition-transform group-hover:scale-110 duration-300">
-            Y
+          <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden border-2 border-[#E8262A] shadow-[0_0_12px_rgba(232,38,42,0.35)] transition-transform group-hover:scale-110 duration-300 shrink-0 bg-zinc-900">
+            <img
+              src="/avatar.jpg"
+              alt="Yuan Nata Nugraha"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
-          <span className="font-display font-semibold text-base tracking-tight flex items-center gap-2">
-            Yuan Nata
-            <span className="opacity-30 font-normal hidden sm:inline text-sm">| AI Engineer</span>
+          <span className="font-display font-semibold text-base md:text-lg tracking-tight flex items-center gap-2 text-white">
+            Yuan Nata Nugraha
+            <span className="opacity-35 font-normal hidden xl:inline text-xs md:text-sm text-gray-400">| AI Engineer</span>
           </span>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
-          {navLinks.map((link) => {
-            const id = link.href.replace("#", "");
-            const isActive = activeSection === id;
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                className={`relative px-3.5 py-1.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  isActive
-                    ? "text-white"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                }`}
-                aria-current={isActive ? "page" : undefined}
-              >
-                {link.label}
-                {isActive && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute inset-0 bg-white/8 rounded-lg border border-white/10"
-                    transition={{ type: "spring", duration: 0.4, bounce: 0.15 }}
-                  />
-                )}
-              </a>
-            );
-          })}
-        </nav>
+        {/* Desktop Nav + Action */}
+        <div className="hidden lg:flex items-center gap-2.5 xl:gap-3.5">
+          <nav className="flex items-center gap-1" aria-label="Main navigation">
+            {navLinks.map((link) => {
+              const id = link.href.replace("#", "");
+              const isActive = activeSection === id;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                  className={`relative px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                    isActive
+                      ? "text-white"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {link.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-indicator"
+                      className="absolute inset-0 bg-white/8 rounded-lg border border-white/10"
+                      transition={{ type: "spring", duration: 0.4, bounce: 0.15 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
+          </nav>
 
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition-all"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-        >
-          <AnimatePresence mode="wait">
-            {isOpen ? (
-              <motion.span
-                key="x"
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.15 }}
-              >
-                <X size={18} />
-              </motion.span>
-            ) : (
-              <motion.span
-                key="menu"
-                initial={{ rotate: 90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -90, opacity: 0 }}
-                transition={{ duration: 0.15 }}
-              >
-                <Menu size={18} />
-              </motion.span>
-            )}
-          </AnimatePresence>
-        </button>
+          <button
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              setTimeout(() => {
+                const input = document.querySelector('input[placeholder*="Cari proyek"]') as HTMLInputElement;
+                if (input) input.focus();
+              }, 400);
+            }}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs text-gray-400 hover:text-white rounded-lg hover:bg-white/5 border border-white/10 transition-colors cursor-pointer"
+            title="Search portofolio (Ctrl+K)"
+          >
+            <Search size={13} />
+            <span className="hidden xl:inline text-[10px] font-mono text-gray-500">Ctrl+K</span>
+          </button>
+
+          <a
+            href="/CV.pdf"
+            download="CV_Yuan_Nata_Nugraha.pdf"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#E8262A]/10 hover:bg-[#E8262A] text-white border border-[#E8262A]/30 hover:border-[#E8262A] transition-all duration-200 hover:scale-105 shadow-sm"
+            title="Download CV Yuan Nata Nugraha (PDF)"
+          >
+            <FileDown size={14} className="text-[#E8262A] group-hover:text-white" />
+            <span>Download CV</span>
+          </a>
+        </div>
+
+        {/* Mobile Right Side: Quick CV + Hamburger */}
+        <div className="flex lg:hidden items-center gap-2">
+          <a
+            href="/CV.pdf"
+            download="CV_Yuan_Nata_Nugraha.pdf"
+            className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-lg bg-[#E8262A]/15 text-white border border-[#E8262A]/30"
+          >
+            <FileDown size={13} className="text-[#E8262A]" />
+            <span>CV</span>
+          </a>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition-all"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+          >
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.span
+                  key="x"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <X size={18} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Menu size={18} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Drawer */}
@@ -149,7 +190,7 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="lg:hidden overflow-hidden bg-black/95 backdrop-blur-xl border-t border-white/5"
+            className="lg:hidden overflow-y-auto max-h-[calc(100dvh-70px)] bg-black/95 backdrop-blur-xl border-t border-white/5"
           >
             <nav className="py-2" aria-label="Mobile navigation">
               {navLinks.map((link, i) => {
@@ -174,6 +215,16 @@ export function Header() {
                 );
               })}
             </nav>
+            <div className="p-4 border-t border-white/5 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]">
+              <a
+                href="/CV.pdf"
+                download="CV_Yuan_Nata_Nugraha.pdf"
+                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg bg-[#E8262A] text-white text-sm font-semibold hover:bg-[#c41f23] transition-all shadow-md"
+              >
+                <FileDown size={16} />
+                <span>Download CV (PDF)</span>
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

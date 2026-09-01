@@ -17,6 +17,13 @@
   --ease-cinematic: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+}
+
 /* ═══════════════════════════════════════════════════════════
    RESET & BASE
 ═══════════════════════════════════════════════════════════ */
@@ -29,6 +36,10 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -36,7 +47,19 @@ body {
   color: #ffffff;
   font-family: var(--font-sans);
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent iOS Safari Auto-Zoom on Input Focus */
+@media screen and (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -221,13 +244,15 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: calc(1rem + env(safe-area-inset-top, 0px)) 1rem calc(1rem + env(safe-area-inset-bottom, 0px)) 1rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 .cert-modal-content {
   width: 100%;
   max-width: 900px;
   max-height: 90vh;
+  max-height: calc(100dvh - 30px);
   background: #0d0d0d;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 1.25rem;

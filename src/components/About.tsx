@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { MapPin, Mail, Linkedin, Phone, GraduationCap } from "lucide-react";
+import { MapPin, Mail, Linkedin, Phone, GraduationCap, FileDown } from "lucide-react";
 
 export function About() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -28,7 +28,17 @@ export function About() {
           <p className="section-label">Who I Am</p>
           <h2 id="about-heading" className="section-heading">About Me</h2>
 
-          <div className="space-y-3 text-gray-400 text-sm mt-8">
+          {/* Profile Photo */}
+          <div className="relative w-32 h-40 md:w-36 md:h-48 rounded-2xl overflow-hidden border-2 border-[#E8262A]/40 shadow-[0_10px_30px_rgba(232,38,42,0.2)] mt-6 mb-6 group">
+            <img
+              src="/profile.jpg"
+              alt="Yuan Nata Nugraha"
+              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+          </div>
+
+          <div className="space-y-3 text-gray-400 text-sm">
             <div className="flex items-center gap-3">
               <MapPin size={15} className="text-[#E8262A] shrink-0" />
               <span>Bekasi, Jawa Barat, 17412</span>
@@ -57,6 +67,18 @@ export function About() {
                 LinkedIn Profile
               </a>
             </div>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-white/5">
+            <a
+              href="/CV.pdf"
+              download="CV_Yuan_Nata_Nugraha.pdf"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#E8262A]/10 hover:bg-[#E8262A] text-white border border-[#E8262A]/30 hover:border-[#E8262A] text-xs font-semibold transition-all duration-200 group w-full justify-center sm:w-auto shadow-sm"
+              title="Download CV Yuan Nata Nugraha"
+            >
+              <FileDown size={15} className="text-[#E8262A] group-hover:text-white" />
+              <span>Download CV (PDF)</span>
+            </a>
           </div>
         </motion.div>
 

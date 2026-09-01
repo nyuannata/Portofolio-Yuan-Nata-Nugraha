@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, Brain, Cpu, Layers, Bot, Wand2, Mic2 } from "lucide-react";
+import { ArrowDown, Brain, Cpu, Layers, Bot, Wand2, Mic2, FileDown } from "lucide-react";
+import { SearchBar } from "./SearchBar";
 
 const floatingIcons = [
   { Icon: Brain,  color: "text-violet-400/70", glow: "rgba(167,139,250,0.3)", x: "3%",  y: "14%", size: 32, delay: 0,   floatY: -10, dur: 4.2 },
@@ -27,7 +28,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[100vh] min-h-[100dvh] flex items-center overflow-hidden"
       aria-label="Hero section"
     >
       {/* === PARALLAX BACKGROUND IMAGE === */}
@@ -149,26 +150,40 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-wrap gap-4 mt-10"
+            className="flex flex-wrap gap-3.5 mt-10"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.6 }}
           >
             <a
+              href="/CV.pdf"
+              download="CV_Yuan_Nata_Nugraha.pdf"
+              className="inline-flex items-center gap-2 bg-[#E8262A] hover:bg-[#c41f23] text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(232,38,42,0.4)] shadow-lg"
+              title="Download CV Yuan Nata Nugraha"
+            >
+              <FileDown size={17} />
+              <span>Download CV</span>
+            </a>
+            <a
               href="#projects"
               onClick={(e) => { e.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }}
-              className="inline-flex items-center gap-2 bg-[#E8262A] hover:bg-[#c41f23] text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(232,38,42,0.4)]"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105 border border-white/15"
             >
               View Projects
             </a>
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:bg-white/5"
+              className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-gray-300 hover:text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:bg-white/5"
             >
               Contact Me
             </a>
           </motion.div>
+
+          {/* Pill-Shaped Search Bar with Voice-to-Text */}
+          <div className="mt-8 max-w-xl">
+            <SearchBar />
+          </div>
         </motion.div>
       </div>
 
