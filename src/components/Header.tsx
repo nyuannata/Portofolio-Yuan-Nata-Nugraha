@@ -57,7 +57,7 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/80 backdrop-blur-xl border-b border-white/5 py-3"
+          ? "bg-black/85 backdrop-blur-xl py-3 shadow-[0_4px_30px_rgba(0,0,0,0.85)]"
           : "bg-transparent py-5"
       }`}
     >
