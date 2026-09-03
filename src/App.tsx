@@ -29,7 +29,7 @@ export default function App() {
 
       <Header />
 
-      <main className="relative z-10 pt-16">
+      <main className="relative z-10 pt-20">
         <Hero />
         <About />
         <Experience />

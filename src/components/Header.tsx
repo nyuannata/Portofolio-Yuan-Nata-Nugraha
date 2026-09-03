@@ -55,10 +55,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 py-5 transition-colors duration-300 ${
         scrolled
-          ? "bg-black/85 backdrop-blur-xl py-3 shadow-[0_4px_30px_rgba(0,0,0,0.85)]"
-          : "bg-transparent py-5"
+          ? "bg-black/90 backdrop-blur-xl shadow-[0_6px_30px_rgba(0,0,0,0.85)]"
+          : "bg-black/40 backdrop-blur-md"
       }`}
     >
       <div className="w-full px-6 md:px-12 lg:px-16 flex justify-between items-center">
