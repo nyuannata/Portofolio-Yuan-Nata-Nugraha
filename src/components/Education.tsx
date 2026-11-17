@@ -7,19 +7,21 @@ const educations = [
     icon: GraduationCap,
     institution: "Universitas Gunadarma",
     degree: "Bachelor's Degree in Computer Systems",
-    period: "August 2024 – August 2026",
+    gpa: "GPA 3.55 / 4.00",
+    period: "August 2024 - August 2026",
     location: "Bekasi, Indonesia",
+    transferNote: "Transfer student from Universitas Sriwijaya",
     primary: true,
     focus: [
       "Artificial Intelligence",
       "Machine Learning",
-      "Internet of Things",
+      "Internet of Things (IoT)",
       "Software Development",
     ],
     thesis: {
       title:
-        "Implementasi Random Forest pada Sistem Monitoring Kesehatan Berbasis IoT untuk Klasifikasi Kondisi Pernapasan",
-      note: "Bachelor's Thesis",
+        "Implementation of Random Forest in an IoT-Based Health Monitoring System for Respiratory Condition Classification (ESP32, MAX30102, MPU6050, DS18B20 sensors, MQTT protocol & Web Dashboard).",
+      note: "Undergraduate Bachelor's Thesis",
     },
   },
 ];
@@ -84,9 +86,14 @@ export function Education() {
                   <GraduationCap size={18} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-display">{educations[0].institution}</h3>
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <h3 className="text-lg font-bold text-white font-display">{educations[0].institution}</h3>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#E8262A]/10 text-[#E8262A] border border-[#E8262A]/20">
+                      {educations[0].gpa}
+                    </span>
+                  </div>
                   <p className="text-gray-400 text-sm mt-0.5">{educations[0].degree}</p>
-                  <p className="text-gray-600 text-xs mt-1">{educations[0].location}</p>
+                  <p className="text-gray-500 text-xs mt-0.5">{educations[0].transferNote} · {educations[0].location}</p>
                 </div>
               </div>
               <span className="text-xs font-mono text-gray-500 bg-white/4 border border-white/8 py-1 px-3 rounded-full shrink-0 self-start">

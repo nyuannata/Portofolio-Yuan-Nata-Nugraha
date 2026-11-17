@@ -85,22 +85,23 @@ export function About() {
         {/* RIGHT — directional from right */}
         <motion.div style={{ x: rightX, opacity }}>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-            I'm a{" "}
+            I'm an{" "}
             <span className="text-white font-semibold">
-              motivated AI and Machine Learning practitioner
+              Entry-Level AI/ML Engineer
             </span>{" "}
-            based in Bekasi, Indonesia, currently pursuing a Bachelor's in Computer Systems
-            at Universitas Gunadarma while working as an{" "}
-            <span className="text-white font-semibold">AI Project Intern</span>{" "}
-            at Astra Credit Companies.
+            and recent{" "}
+            <span className="text-white font-semibold">
+              Computer Systems Graduate (GPA 3.55/4.00)
+            </span>{" "}
+            based in Bekasi, Indonesia, with six months of hands-on AI internship experience at{" "}
+            <span className="text-[#E8262A] font-semibold">Astra Credit Companies (ACC)</span>.
           </p>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed mt-5">
-            My hands-on work spans{" "}
-            <span className="text-white font-medium">Automatic Speech Recognition</span>,{" "}
-            <span className="text-white font-medium">Retrieval-Augmented Generation</span>,{" "}
-            <span className="text-white font-medium">Generative AI applications</span>, and{" "}
-            <span className="text-white font-medium">IoT-based health monitoring</span>.{" "}
-            I focus on building reliable, well-structured AI solutions that solve real problems.
+            My hands-on experience covers{" "}
+            <span className="text-white font-medium">Automatic Speech Recognition</span> (fine-tuning Whisper Large-v3, reducing WER from ~60% to ~40%),{" "}
+            <span className="text-white font-medium">Retrieval-Augmented Generation (RAG)</span> with Google Gemini API,{" "}
+            <span className="text-white font-medium">Frontend Dashboard Development</span> for social media sentiment monitoring, and{" "}
+            <span className="text-white font-medium">IoT-based health classification</span> using Random Forest. I am actively seeking Junior AI Engineer, Machine Learning Engineer, or Generative AI Engineer roles.
           </p>
 
           {/* Education card */}
@@ -113,7 +114,7 @@ export function About() {
           >
             <h3 className="text-sm font-semibold text-gray-400 mb-4 flex items-center gap-2 uppercase tracking-widest text-xs">
               <GraduationCap size={14} className="text-[#E8262A]" />
-              Current Education
+              Education & Degree
             </h3>
             <motion.div
               whileHover={{ y: -4, scale: 1.01, transition: { duration: 0.25 } }}
@@ -124,8 +125,14 @@ export function About() {
               <div className="relative z-10">
                 <div className="flex justify-between items-start flex-wrap gap-3">
                   <div>
-                    <h4 className="font-bold text-white text-base font-display">Universitas Gunadarma</h4>
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <h4 className="font-bold text-white text-base font-display">Universitas Gunadarma</h4>
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#E8262A]/10 text-[#E8262A] border border-[#E8262A]/20">
+                        GPA 3.55 / 4.00
+                      </span>
+                    </div>
                     <p className="text-gray-400 text-sm mt-0.5">Bachelor's Degree in Computer Systems</p>
+                    <p className="text-gray-500 text-xs mt-0.5">Transfer student from Universitas Sriwijaya</p>
                     <div className="flex flex-wrap gap-1.5 mt-3">
                       {["Artificial Intelligence", "Machine Learning", "IoT", "Software Development"].map((f) => (
                         <span key={f} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/8 text-gray-400">
@@ -134,13 +141,13 @@ export function About() {
                       ))}
                     </div>
                   </div>
-                  <span className="text-xs font-mono text-gray-500 shrink-0">Aug 2024 – Aug 2026</span>
+                  <span className="text-xs font-mono text-gray-500 shrink-0">Aug 2024 - Aug 2026</span>
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/5">
                   <p className="text-xs text-gray-500 font-mono leading-relaxed">
                     <span className="text-gray-400 font-semibold">Thesis:</span>{" "}
-                    Implementasi Random Forest pada Sistem Monitoring Kesehatan Berbasis IoT
-                    untuk Klasifikasi Kondisi Pernapasan.
+                    Implementation of Random Forest in an IoT-Based Health Monitoring System
+                    for Respiratory Condition Classification (ESP32, MAX30102, MPU6050, DS18B20, MQTT).
                   </p>
                 </div>
               </div>

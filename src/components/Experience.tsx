@@ -7,37 +7,37 @@ const accMilestones = [
   {
     icon: Mic2,
     num: "01",
-    title: "Automatic Speech Recognition",
-    desc: "Built an ASR pipeline using OpenAI Whisper Large-v3 on GPU infrastructure of approximately 42 GB VRAM. Performed manual transcription and ground-truth annotation on 125 audio recordings, then conducted systematic transcription accuracy evaluation.",
-    tags: ["Whisper Large-v3", "ASR", "GPU ~42 GB VRAM", "125 recordings"],
+    title: "Speech Recognition & Fine-Tuning",
+    desc: "Fine-tuned and evaluated OpenAI Whisper Large-v3 on call-center and customer-service audio using manually transcribed ground-truth data, reducing Word Error Rate (WER) from ~60% to ~40% and improving recognition of domain terms such as the company name.",
+    tags: ["Whisper Large-v3", "ASR Fine-Tuning", "WER ~60% → ~40%", "GPU ~42 GB VRAM", "Domain Vocabulary"],
+  },
+  {
+    icon: FileText,
+    num: "02",
+    title: "Ground-Truth Data Annotation",
+    desc: "Transcribed and annotated 125 audio recordings to build the ground-truth benchmark dataset for model training, acoustic evaluation, and domain adaptation.",
+    tags: ["Data Annotation", "Ground Truth", "125 Recordings", "Audio Evaluation"],
   },
   {
     icon: Bot,
-    num: "02",
-    title: "RAG Information Retrieval App",
-    desc: "Developed a web-based Retrieval-Augmented Generation application using the Google Gemini API to enable intelligent document-grounded question answering and information retrieval.",
-    tags: ["Google Gemini API", "RAG", "LLM", "Web App"],
-  },
-  {
-    icon: Brain,
     num: "03",
-    title: "AI Portfolio Chatbot",
-    desc: "Built an AI-powered portfolio chatbot using Google Gemini API with carefully engineered prompt restrictions and domain constraints to ensure responses remain accurate and on-topic.",
-    tags: ["Google Gemini API", "Prompt Engineering", "Domain Restriction"],
+    title: "RAG Information Retrieval App",
+    desc: "Built a web-based Retrieval-Augmented Generation application integrated with the Google Gemini API to enable intelligent document-grounded question answering and context-aware retrieval.",
+    tags: ["Google Gemini API", "RAG", "LLM", "Web App"],
   },
   {
     icon: LayoutDashboard,
     num: "04",
-    title: "Business & Inventory Web App",
-    desc: "Developed a full-featured business and inventory management web application covering orders, stock, income, expenses, and invoices. Integrated automatic calculations, Firebase for real-time data, and Excel export functionality.",
-    tags: ["Firebase", "Excel Export", "Orders & Stock", "Invoices"],
+    title: "Social Media Sentiment Dashboard",
+    desc: "Developed the frontend of a Social Media Sentiment Analysis dashboard, including the interface for connecting ACC Facebook and Instagram accounts and monitoring public sentiment metrics.",
+    tags: ["React", "Frontend", "Social Media", "Sentiment Monitoring", "ACC Facebook & IG"],
   },
   {
-    icon: FileText,
+    icon: Brain,
     num: "05",
-    title: "LLM Model Inventory & Documentation",
-    desc: "Created and maintained comprehensive LLM model inventory and documentation. Explored and evaluated AI capabilities through Microsoft Azure AI Foundry and Google AI platforms.",
-    tags: ["Azure AI Foundry", "Google AI", "LLM Documentation"],
+    title: "LLM Model Inventory & Evaluation",
+    desc: "Inventoried and documented LLMs across Microsoft Azure AI Foundry and Google AI platforms to support internal model evaluation and enterprise AI adoption.",
+    tags: ["Azure AI Foundry", "Google AI Platforms", "LLM Documentation", "Model Evaluation"],
   },
 ];
 
@@ -46,22 +46,43 @@ const otherExperiences = [
     role: "Laboratory Intern",
     company: "Universitas Sriwijaya",
     date: "Sep 2019 - Oct 2019",
-    location: "Palembang, Indonesia",
+    location: "Palembang, South Sumatra",
     description: [
-      "Operated and monitored 3D printing processes for prototype development.",
-      "Understood detailed 3D printer system workflows and hardware configurations.",
-      "Assisted in basic troubleshooting and hardware maintenance.",
+      "Operated 3D printing equipment for laboratory testing and prototype development.",
+      "Assisted with setup, calibration, hardware workflows, and basic troubleshooting.",
     ],
   },
   {
-    role: "Charity Livestream Committee - Moderator & Equipment",
-    company: "Streamer Channel GAGITUSIL",
-    date: "Jun 2025",
+    role: "Event Operations Volunteer",
+    company: "FORPASI (Forum Peduli Sampah Seluruh Indonesia)",
+    date: "May 2026",
     location: "Volunteer",
     description: [
-      "Selected as committee member based on prior livestream moderation experience.",
-      "Managed and prepared event equipment; conducted documentation via photo and video.",
-      "Surveyed orphanages as potential charity beneficiaries.",
+      "Assisted in preparing and arranging event facilities and equipment, including stage backdrops, display screens, flower arrangements, and catering.",
+      "Supported venue setup and helped ensure facilities and logistical requirements were fully prepared before the event.",
+      "Collaborated with the on-site operations team to support smooth event execution and problem solving.",
+    ],
+  },
+  {
+    role: "Social Media Design Contributor",
+    company: "NAC Ilkom Unsri",
+    date: "2020",
+    location: "Organization",
+    description: [
+      "Created social media graphics and visual materials for organizational announcements and event publications using CorelDRAW.",
+      "Assisted in designing promotional materials for organizational activities and recruitment announcements.",
+      "Supported effective visual communication of organizational information through digital design.",
+    ],
+  },
+  {
+    role: "Event Committee - Logistics Support",
+    company: "HIMAJA – Himpunan Mahasiswa Jambi, Universitas Sriwijaya",
+    date: "2019",
+    location: "Organization",
+    description: [
+      "Managed event logistics, including catering arrangements, venue decorations, and equipment staging.",
+      "Supported venue setup and ensured facilities and logistical requirements were ready before the event.",
+      "Collaborated closely with committee members to support smooth event execution.",
     ],
   },
 ];
@@ -166,6 +187,15 @@ export function Experience() {
       </div>
 
       {/* === OTHER EXPERIENCES - timeline === */}
+      <div className="mb-10">
+        <p className="text-xs font-mono uppercase tracking-widest text-[#E8262A] font-semibold mb-1">
+          Organizational, Volunteer & Earlier History
+        </p>
+        <h3 className="text-xl md:text-2xl font-bold text-white font-display">
+          Community, Design & Laboratory Experience
+        </h3>
+      </div>
+
       <div className="border-l border-white/8 pl-6 md:pl-10 relative space-y-10">
         <div className="timeline-line" />
         {otherExperiences.map((exp, i) => (

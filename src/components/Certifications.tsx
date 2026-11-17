@@ -356,6 +356,33 @@ export function Certifications() {
             {certificates[activeIdx].issuer} · {certificates[activeIdx].year}
           </p>
         </motion.div>
+
+        {/* University Technical Certifications & Training */}
+        <div className="mt-12 pt-8 border-t border-white/5">
+          <p className="text-center text-xs font-mono uppercase tracking-widest text-[#E8262A] font-semibold mb-4">
+            University Technical Certifications & Training
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <div className="p-4 rounded-xl bg-white/4 border border-white/8 hover:border-[#E8262A]/30 transition-all text-left">
+              <div className="flex items-start gap-2.5 mb-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#E8262A] mt-1.5 shrink-0" />
+                <div>
+                  <h4 className="text-sm font-semibold text-white leading-snug">Computer Networks Requirement Identification</h4>
+                  <p className="text-xs text-gray-400 mt-1">Universitas Gunadarma · Feb - Mar 2025</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 rounded-xl bg-white/4 border border-white/8 hover:border-[#E8262A]/30 transition-all text-left">
+              <div className="flex items-start gap-2.5 mb-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#E8262A] mt-1.5 shrink-0" />
+                <div>
+                  <h4 className="text-sm font-semibold text-white leading-snug">Addressing and Routing in Computer Networks</h4>
+                  <p className="text-xs text-gray-400 mt-1">Universitas Gunadarma · Sep 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
 
       {/* === MODAL === */}
