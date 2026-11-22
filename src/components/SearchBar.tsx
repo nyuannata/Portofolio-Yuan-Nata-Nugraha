@@ -201,7 +201,7 @@ const categoryColors = {
   Education: "text-zinc-300 bg-white/[0.05] border-white/10",
 };
 
-export function SearchBar() {
+export function SearchBar({ className = "" }: { className?: string }) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isListening, setIsListening] = useState(false);
@@ -335,26 +335,23 @@ export function SearchBar() {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-xl mx-auto my-6 z-30">
-      {/* Pill-Shaped Search Bar Container (Matching User's Reference) */}
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className={`group relative flex items-center w-full h-12 md:h-13 px-4 rounded-full bg-white text-zinc-900 border-2 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.35)] ${
+    <div ref={containerRef} className={`relative z-40 ${className}`}>
+      {/* Sleek Dark Pill Container */}
+      <div
+        className={`group relative flex items-center w-full h-9 sm:h-10 px-3 rounded-full bg-zinc-900/90 hover:bg-zinc-850 border transition-all duration-200 shadow-md backdrop-blur-md ${
           isListening
-            ? "border-[#E8262A] ring-4 ring-[#E8262A]/25"
+            ? "border-[#E8262A] ring-2 ring-[#E8262A]/30"
             : isOpen || query
-            ? "border-[#E8262A] ring-2 ring-[#E8262A]/20"
-            : "border-zinc-300 hover:border-zinc-400"
+            ? "border-white/40 ring-1 ring-white/20 bg-zinc-900"
+            : "border-white/15 hover:border-white/25"
         }`}
       >
-        {/* Search Icon (Left) */}
-        <div className="flex items-center justify-center shrink-0 pr-2.5 text-zinc-500 group-focus-within:text-[#E8262A] transition-colors">
-          <Search size={20} strokeWidth={2.2} />
+        {/* Search Icon */}
+        <div className="flex items-center justify-center shrink-0 pr-2 text-zinc-400 group-focus-within:text-white transition-colors">
+          <Search size={14} strokeWidth={2.2} />
         </div>
 
-        {/* Text Input (Center) */}
+        {/* Text Input */}
         <input
           ref={inputRef}
           type="text"
@@ -366,31 +363,38 @@ export function SearchBar() {
           }}
           placeholder={
             isListening
-              ? "Mendengarkan suara Anda..."
-              : "Cari proyek, skill, sertifikat (misal: Whisper, RAG, Python)..."
+              ? "Mendengarkan..."
+              : "Cari proyek, skill..."
           }
-          className="w-full h-full bg-transparent text-zinc-900 text-base font-medium placeholder-zinc-400 focus:outline-none"
+          className="w-full h-full bg-transparent text-white text-xs sm:text-sm font-normal placeholder-zinc-500 focus:outline-none"
         />
 
         {/* Clear Button */}
         {query && !isListening && (
           <button
             onClick={handleClear}
-            className="p-1 mr-1 text-zinc-400 hover:text-zinc-700 rounded-full hover:bg-zinc-100 transition-colors cursor-pointer"
+            className="p-1 mr-1 text-zinc-400 hover:text-white rounded-full hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Hapus pencarian"
           >
-            <X size={16} />
+            <X size={13} />
           </button>
         )}
 
-        {/* Mic / Voice-to-Text Button (Right) */}
+        {/* Shortcut badge */}
+        {!query && !isListening && (
+          <kbd className="hidden lg:inline text-[9px] font-mono text-zinc-500 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded shrink-0 mr-1.5 select-none">
+            Ctrl+K
+          </kbd>
+        )}
+
+        {/* Mic / Voice-to-Text Button */}
         <button
           type="button"
           onClick={toggleVoiceRecognition}
-          className={`relative flex items-center justify-center w-9 h-9 rounded-full transition-all cursor-pointer shrink-0 ${
+          className={`relative flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full transition-all cursor-pointer shrink-0 ${
             isListening
               ? "bg-[#E8262A] text-white"
-              : "text-zinc-600 hover:text-[#E8262A] hover:bg-zinc-100"
+              : "text-zinc-400 hover:text-white hover:bg-white/10"
           }`}
           title={isListening ? "Hentikan perekaman suara" : "Bicara untuk mencari (Voice-to-Text)"}
           aria-label="Voice search"
@@ -398,13 +402,13 @@ export function SearchBar() {
           {isListening ? (
             <>
               <span className="absolute inset-0 rounded-full bg-[#E8262A] animate-ping opacity-40" />
-              <MicOff size={18} className="relative z-10" />
+              <MicOff size={13} className="relative z-10" />
             </>
           ) : (
-            <Mic size={20} strokeWidth={2.2} />
+            <Mic size={14} strokeWidth={2.2} />
           )}
         </button>
-      </motion.div>
+      </div>
 
       {/* Voice Status Pill */}
       <AnimatePresence>
@@ -413,15 +417,15 @@ export function SearchBar() {
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
-            className="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-[#E8262A]/40 text-white text-xs font-mono flex items-center gap-2 shadow-lg z-40"
+            className="absolute right-0 top-full mt-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-white/15 text-white text-xs font-mono flex items-center gap-2 shadow-lg z-40 whitespace-nowrap"
           >
-            <span className="w-2 h-2 rounded-full bg-[#E8262A] animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-[#E8262A] animate-ping shrink-0" />
             <span>{voiceFeedback}</span>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Live Search Results Dropdown */}
+      {/* Live Search Results Dropdown (Right-aligned under search bar) */}
       <AnimatePresence>
         {isOpen && query.trim().length > 0 && (
           <motion.div
@@ -429,7 +433,7 @@ export function SearchBar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.98 }}
             transition={{ duration: 0.18 }}
-            className="absolute left-0 right-0 top-full mt-2 bg-zinc-950/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-50 flex flex-col max-h-[380px]"
+            className="absolute right-0 top-full mt-2 w-[calc(100vw-32px)] sm:w-[380px] md:w-[420px] bg-zinc-950/98 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-50 flex flex-col max-h-[380px]"
             style={{ overscrollBehavior: 'contain' }}
           >
             {/* Header */}

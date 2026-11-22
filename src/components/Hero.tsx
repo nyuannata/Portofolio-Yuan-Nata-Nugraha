@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { Linkedin, Github, Mail, User, Briefcase, FileDown, ArrowDown, Sparkles } from "lucide-react";
+import { Linkedin, Github, Mail, User, Briefcase, FileDown, ArrowDown } from "lucide-react";
+import { SearchBar } from "./SearchBar";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -61,9 +62,12 @@ export function Hero() {
           </a>
         </div>
 
-        {/* Top-Right: Pill Navigation (About & Experience) + CV */}
+        {/* Top-Right: Search Bar + Pill Navigation (About & Experience) + CV */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <div className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-lg">
+          {/* Top-Right Search Bar */}
+          <SearchBar className="w-36 sm:w-48 md:w-56 lg:w-64" />
+
+          <div className="hidden sm:flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-lg">
             <button
               onClick={() => scrollTo("about")}
               className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-[#C7C7CC] hover:text-white transition-colors cursor-pointer"
@@ -85,7 +89,7 @@ export function Hero() {
           <a
             href="/CV.pdf"
             download="CV_Yuan_Nata_Nugraha.pdf"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#E8262A]/40 bg-[#E8262A]/15 hover:bg-[#E8262A] text-white text-xs font-medium transition-all duration-200 hover:scale-105"
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#E8262A]/40 bg-[#E8262A]/15 hover:bg-[#E8262A] text-white text-xs font-medium transition-all duration-200 hover:scale-105"
             title="Download CV"
           >
             <FileDown size={13} />
