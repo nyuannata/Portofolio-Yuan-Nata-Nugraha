@@ -7,7 +7,6 @@ const projects = [
     id: "iot-health",
     num: "01",
     Icon: Activity,
-    iconColor: "text-green-400",
     title: "IoT-Based Health Monitoring System with Random Forest",
     subtitle: "Undergraduate Thesis — Respiratory Condition Classification",
     description:
@@ -19,7 +18,6 @@ const projects = [
     id: "asr-pipeline",
     num: "02",
     Icon: Mic2,
-    iconColor: "text-cyan-400",
     title: "Speech Recognition & Fine-Tuning Pipeline",
     subtitle: "OpenAI Whisper Large-v3 on GPU Infrastructure (~42 GB VRAM)",
     description:
@@ -31,7 +29,6 @@ const projects = [
     id: "rag-app",
     num: "03",
     Icon: MessageSquare,
-    iconColor: "text-blue-400",
     title: "RAG Information Retrieval Application",
     subtitle: "Web-based Generative AI & Knowledge Base Q&A",
     description:
@@ -43,7 +40,6 @@ const projects = [
     id: "sentiment-dashboard",
     num: "04",
     Icon: LayoutDashboard,
-    iconColor: "text-amber-400",
     title: "Social Media Sentiment Analysis Dashboard",
     subtitle: "Frontend Interface for ACC Facebook & Instagram Sentiment Monitoring",
     description:
@@ -55,7 +51,6 @@ const projects = [
     id: "chatbot",
     num: "05",
     Icon: Bot,
-    iconColor: "text-violet-400",
     title: "Portfolio Website with Google Gemini AI Chatbot",
     subtitle: "Domain-Restricted Conversational AI & Web Portfolio",
     description:
@@ -67,7 +62,6 @@ const projects = [
     id: "business-app",
     num: "06",
     Icon: LayoutDashboard,
-    iconColor: "text-emerald-400",
     title: "Business & Inventory Web Application",
     subtitle: "Full-Featured Operations & Invoice Management System",
     description:
@@ -103,13 +97,13 @@ function ProjectCard({
       viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -5, scale: 1.015, transition: { duration: 0.25 } }}
-      className="card-base p-6 md:p-8 group transition-all duration-300 hover:border-white/20 hover:shadow-[0_15px_35px_-10px_rgba(255,255,255,0.04)]"
+      className="card-base p-6 md:p-8 group transition-all duration-300 hover:border-white/20"
       aria-label={project.title}
     >
       <div className="flex flex-col md:flex-row md:items-start gap-6">
         {/* Icon + number */}
         <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-2 md:min-w-[60px]">
-          <div className={`w-10 h-10 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center ${project.iconColor} group-hover:border-white/16 transition-colors`}>
+          <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:border-white/20 transition-colors">
             <project.Icon size={18} />
           </div>
           <span className="text-xs font-mono text-gray-600">{project.num}</span>
@@ -161,13 +155,6 @@ export function Projects() {
       className="section-standard overflow-hidden"
       aria-labelledby="projects-heading"
     >
-      {/* Background depth layer */}
-      <motion.div
-        className="absolute right-0 top-0 w-80 h-80 bg-blue-950/15 rounded-full blur-[100px] pointer-events-none"
-        style={{ y: bgY }}
-        aria-hidden="true"
-      />
-
       {/* Heading — LEFT → RIGHT */}
       <motion.div
         style={{ x: headingX, opacity: headingOpacity }}

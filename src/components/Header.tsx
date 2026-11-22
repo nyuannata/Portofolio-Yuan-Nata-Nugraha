@@ -19,7 +19,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 80);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -55,10 +55,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-5 transition-colors duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 py-3.5 transition-all duration-300 ${
         scrolled
-          ? "bg-black/90 backdrop-blur-xl shadow-[0_6px_30px_rgba(0,0,0,0.85)]"
-          : "bg-black/40 backdrop-blur-md"
+          ? "opacity-100 translate-y-0 pointer-events-auto bg-[#0e0e10]/95 backdrop-blur-xl border-b border-white/5 shadow-[0_6px_30px_rgba(0,0,0,0.85)]"
+          : "opacity-0 -translate-y-4 pointer-events-none"
       }`}
     >
       <div className="w-full px-6 md:px-12 lg:px-16 flex justify-between items-center">
@@ -69,7 +69,7 @@ export function Header() {
           className="flex items-center gap-2.5 group shrink-0"
           aria-label="Yuan Nata Nugraha Home"
         >
-          <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden border-2 border-[#E8262A] shadow-[0_0_12px_rgba(232,38,42,0.35)] transition-transform group-hover:scale-110 duration-300 shrink-0 bg-zinc-900">
+          <div className="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden border border-white/20 transition-transform group-hover:scale-105 duration-200 shrink-0 bg-zinc-900">
             <img
               src="/avatar.jpg"
               alt="Yuan Nata Nugraha"

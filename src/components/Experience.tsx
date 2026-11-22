@@ -125,7 +125,7 @@ export function Experience() {
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -4, scale: 1.01, transition: { duration: 0.25 } }}
-            className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl border border-[#E8262A]/20 bg-gradient-to-br from-[#E8262A]/5 to-transparent mb-8 shadow-[0_10px_30px_-15px_rgba(232,38,42,0.1)] transition-colors hover:border-[#E8262A]/40"
+            className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl border border-white/10 bg-white/[0.02] mb-8 transition-colors hover:border-white/20"
           >
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-[#E8262A]/10 border border-[#E8262A]/20 flex items-center justify-center shrink-0">

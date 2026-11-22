@@ -149,8 +149,8 @@ export const FloatingChatbot: React.FC = () => {
 
   return (
     <div
-      className="fixed right-3 sm:right-6 z-50"
-      style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}
+      className="fixed right-4 sm:right-8 md:right-12 z-50"
+      style={{ bottom: 'calc(5.5rem + env(safe-area-inset-bottom, 0px))' }}
     >
       {/* Chat Window */}
       <AnimatePresence>
@@ -160,8 +160,8 @@ export const FloatingChatbot: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.95 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-16 right-0 bg-zinc-950 rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_0_1px_rgba(255,255,255,0.12)] overflow-hidden w-[calc(100vw-24px)] sm:w-[410px] max-w-[420px] flex flex-col border border-zinc-800"
-            style={{ height: '580px', maxHeight: 'calc(100dvh - 95px)' }}
+            className="absolute bottom-18 sm:bottom-20 right-0 bg-zinc-950 rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_0_1px_rgba(255,255,255,0.12)] overflow-hidden w-[calc(100vw-24px)] sm:w-[410px] max-w-[420px] flex flex-col border border-zinc-800"
+            style={{ height: '580px', maxHeight: 'calc(100dvh - 180px)' }}
           >
             {/* Header */}
             <div className="bg-zinc-900/95 backdrop-blur-md border-b border-white/10 p-3.5 text-white flex justify-between items-center shrink-0">
@@ -299,7 +299,7 @@ export const FloatingChatbot: React.FC = () => {
                 href="https://wa.me/628973860060?text=Halo%20Yuan,%20saya%20tertarik%20dengan%20profil%20dan%20portofolio%20AI%20Anda."
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-green-500/15 hover:bg-green-600 text-green-400 hover:text-white border border-green-500/30 text-[11px] font-medium transition-all shrink-0"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-gray-300 hover:text-white border border-zinc-700 text-[11px] font-medium transition-all shrink-0"
                 title="WhatsApp Yuan"
               >
                 <MessageCircle size={12} />
@@ -307,7 +307,7 @@ export const FloatingChatbot: React.FC = () => {
               </a>
               <a
                 href="mailto:nyuannata@gmail.com?subject=Interview%20Inquiry%20-%20Yuan%20Nata%20Nugraha"
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-blue-500/15 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/30 text-[11px] font-medium transition-all shrink-0"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-gray-300 hover:text-white border border-zinc-700 text-[11px] font-medium transition-all shrink-0"
                 title="Kirim Email"
               >
                 <Mail size={12} />
@@ -353,27 +353,65 @@ export const FloatingChatbot: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Main Trigger Button */}
-      <motion.button
-        onClick={toggleChat}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className={`w-14 h-14 rounded-full bg-zinc-900 text-white border border-white/15 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.8)] flex items-center justify-center transition-colors cursor-pointer hover:border-[#E8262A]/60 hover:shadow-[0_0_20px_rgba(232,38,42,0.25)] ${
-          isOpen ? 'bg-[#E8262A] border-[#E8262A]' : ''
-        }`}
-        aria-label={isOpen ? 'Tutup Chatbot' : 'Buka Chatbot AI'}
-      >
-        {isOpen ? (
-          <X size={22} />
-        ) : (
-          <div className="flex flex-col items-center justify-center">
-            <Bot size={22} className="text-white" />
-            <span className="text-[9px] font-semibold text-gray-300 font-display tracking-tight leading-none mt-0.5">
-              AI Chat
-            </span>
-          </div>
+      {/* Main Trigger Button + Always Visible Eye-Catching Callout */}
+      <div className="relative flex items-center gap-3">
+        {/* Permanent Eye-Catching Callout Badge (Visible when chat is closed) */}
+        {!isOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0, y: [0, -3, 0] }}
+            transition={{
+              opacity: { duration: 0.3 },
+              x: { duration: 0.3 },
+              y: { repeat: Infinity, duration: 3, ease: "easeInOut" },
+            }}
+            onClick={toggleChat}
+            className="group cursor-pointer relative flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900/95 hover:bg-zinc-850 border border-white/15 hover:border-white/30 shadow-xl backdrop-blur-md transition-all duration-200"
+            title="Klik untuk membuka AI Chatbot"
+          >
+            {/* Clean indicator dot */}
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+
+            {/* Label Text */}
+            <div className="flex items-center gap-1.5 whitespace-nowrap select-none">
+              <span className="text-xs sm:text-[13px] font-semibold text-white tracking-wide font-display">
+                Tanya AI Yuan
+              </span>
+              <span className="text-sm">👋</span>
+            </div>
+
+            {/* Speech bubble arrow pointing right towards the circular button */}
+            <div
+              className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 bg-zinc-900 border-r border-t border-white/15 rotate-45 pointer-events-none group-hover:border-white/30 transition-colors"
+              aria-hidden="true"
+            />
+          </motion.div>
         )}
-      </motion.button>
+
+        {/* Circular Trigger Button */}
+        <motion.button
+          onClick={toggleChat}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className={`group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl shrink-0 ${
+            isOpen
+              ? 'bg-[#E8262A] text-white border-2 border-[#E8262A]'
+              : 'bg-zinc-900 text-white border-2 border-white/20 hover:border-white/40 hover:bg-zinc-800'
+          }`}
+          aria-label={isOpen ? 'Tutup Chatbot' : 'Buka Chatbot AI'}
+        >
+          {isOpen ? (
+            <X size={26} strokeWidth={2.2} />
+          ) : (
+            <div className="relative flex items-center justify-center">
+              {/* Bold, clean Bot Icon */}
+              <Bot size={28} strokeWidth={2.2} className="text-white" />
+              {/* Online Green Indicator Dot */}
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full border-2 border-zinc-900" />
+            </div>
+          )}
+        </motion.button>
+      </div>
     </div>
   );
 };

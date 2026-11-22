@@ -78,18 +78,6 @@ const certificates: Certificate[] = [
   },
 ];
 
-// Gradient palette per card (cycling)
-const cardGradients = [
-  "from-violet-950/50 to-black",
-  "from-blue-950/50 to-black",
-  "from-emerald-950/50 to-black",
-  "from-cyan-950/50 to-black",
-  "from-amber-950/50 to-black",
-  "from-pink-950/50 to-black",
-  "from-indigo-950/50 to-black",
-  "from-teal-950/50 to-black",
-];
-
 type CardPosition = "active" | "prev" | "next" | "far-prev" | "far-next" | "hidden";
 
 function getPosition(index: number, active: number, total: number): CardPosition {
@@ -226,9 +214,9 @@ export function Certifications() {
                   .cert-card { transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.55s ease, filter 0.55s ease; transform-style: preserve-3d; cursor: pointer; }
                 `}</style>
                 <div
-                  className={`relative rounded-2xl border overflow-hidden bg-gradient-to-br ${cardGradients[i % cardGradients.length]} ${
+                  className={`relative rounded-2xl border overflow-hidden bg-gradient-to-br from-zinc-900/90 to-zinc-950 ${
                     pos === "active"
-                      ? "border-white/20 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.06)] cert-card-glint"
+                      ? "border-white/20 shadow-xl"
                       : "border-white/6"
                   }`}
                   style={{ height: "280px" }}
@@ -237,10 +225,10 @@ export function Certifications() {
                   <div className="absolute inset-0 flex flex-col justify-between p-6">
                     {/* Top */}
                     <div className="flex items-start justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center">
-                        <Award size={18} className="text-[#FFD600]" />
+                      <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300">
+                        <Award size={18} />
                       </div>
-                      <span className="text-[10px] font-mono text-gray-500 bg-white/5 px-2 py-1 rounded-full border border-white/8">
+                      <span className="text-[10px] font-mono text-gray-400 bg-white/5 px-2 py-1 rounded-full border border-white/8">
                         {cert.category}
                       </span>
                     </div>
@@ -289,11 +277,11 @@ export function Certifications() {
               transition={{ delay: i * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
               onClick={() => openModal(cert)}
-              className={`text-left rounded-xl border bg-gradient-to-br ${cardGradients[i % cardGradients.length]} border-white/8 p-4 hover:border-white/20 transition-all active:scale-98`}
+              className="text-left rounded-xl border bg-zinc-900/60 border-white/8 p-4 hover:border-white/20 transition-all active:scale-98"
               aria-label={`Open certificate: ${cert.title}`}
             >
               <div className="flex items-center gap-2 mb-3">
-                <Award size={14} className="text-[#FFD600]" />
+                <Award size={14} className="text-zinc-300" />
                 <span className="text-[10px] font-mono text-gray-500">{cert.category}</span>
               </div>
               <h3 className="text-xs font-bold text-white font-display leading-snug mb-2">
@@ -410,8 +398,8 @@ export function Certifications() {
               {/* Modal header */}
               <div className="flex items-center justify-between p-4 border-b border-white/8 shrink-0">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center">
-                    <Award size={15} className="text-[#FFD600]" />
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300">
+                    <Award size={15} />
                   </div>
                   <div>
                     <p className="text-white text-sm font-semibold font-display leading-tight line-clamp-1">

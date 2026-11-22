@@ -18,18 +18,12 @@ import { Footer } from "./components/Footer";
 export default function App() {
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Subtle radial glow at top */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-red-950/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-950/10 rounded-full blur-[100px]" />
-      </div>
-
       {/* Film grain texture overlay */}
       <div className="grain-overlay" aria-hidden="true" />
 
       <Header />
 
-      <main className="relative z-10 pt-20">
+      <main className="relative z-10">
         <Hero />
         <About />
         <Experience />

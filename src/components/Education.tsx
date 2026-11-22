@@ -46,13 +46,6 @@ export function Education() {
       className="section-standard overflow-hidden"
       aria-labelledby="education-heading"
     >
-      {/* Floating background glow — parallax depth layer */}
-      <motion.div
-        className="absolute right-0 top-1/2 w-64 h-64 bg-[#E8262A]/4 rounded-full blur-[80px] pointer-events-none"
-        style={{ y: glowY }}
-        aria-hidden="true"
-      />
-
       {/* Heading — RIGHT→LEFT parallax + whileInView opacity */}
       <motion.div
         style={{ x: headingX }}
@@ -74,15 +67,12 @@ export function Education() {
           viewport={{ once: false, amount: 0.15 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ y: -4, scale: 1.01, transition: { duration: 0.25 } }}
-          className="card-base p-6 md:p-8 relative overflow-hidden border-white/10 transition-all duration-300 hover:border-white/25 hover:shadow-[0_15px_35px_-10px_rgba(255,255,255,0.04)]"
+          className="card-base p-6 md:p-8 relative overflow-hidden border-white/10 transition-all duration-300 hover:border-white/20"
         >
-          {/* Accent glow */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-[#E8262A]/5 rounded-full blur-2xl pointer-events-none" />
-
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-[#E8262A]/10 border border-[#E8262A]/20 text-[#E8262A]">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-white/[0.04] border border-white/10 text-zinc-300">
                   <GraduationCap size={18} />
                 </div>
                 <div>

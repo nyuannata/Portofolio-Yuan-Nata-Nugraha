@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
             className="text-center"
           >
             <h3 className="text-xl font-semibold text-white mb-2 flex items-center justify-center gap-2">
-              <MapPin className="text-blue-500" size={20} />
+              <MapPin className="text-zinc-400" size={20} />
               Alamat Domisili
             </h3>
             <p className="text-gray-400 leading-relaxed text-sm md:text-base">
@@ -42,10 +42,10 @@ export const Footer: React.FC = () => {
             href="https://www.linkedin.com/in/yuan-nata-nugraha-590212361/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-[#0A66C2] hover:bg-[#0A66C2]/15 text-xs font-medium transition-all"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/5 text-xs font-medium transition-all"
             title="LinkedIn Profile"
           >
-            <Linkedin size={15} className="text-[#0A66C2]" />
+            <Linkedin size={15} />
             <span>LinkedIn</span>
           </a>
           <a
@@ -62,28 +62,28 @@ export const Footer: React.FC = () => {
             href="https://wa.me/628973860060"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-green-500/50 hover:bg-green-500/10 text-xs font-medium transition-all"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/5 text-xs font-medium transition-all"
             title="WhatsApp Direct"
           >
-            <MessageCircle size={15} className="text-green-500" />
+            <MessageCircle size={15} />
             <span>WhatsApp</span>
           </a>
           <a
             href="mailto:yuannatanugraha.official@gmail.com"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-[#E8262A]/50 hover:bg-[#E8262A]/10 text-xs font-medium transition-all"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/5 text-xs font-medium transition-all"
             title="Send Email"
           >
-            <Mail size={15} className="text-[#E8262A]" />
+            <Mail size={15} />
             <span>Email</span>
           </a>
           <a
             href="https://instagram.com/yuannatann"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-pink-500/50 hover:bg-pink-500/10 text-xs font-medium transition-all"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/5 text-xs font-medium transition-all"
             title="Instagram Profile"
           >
-            <Instagram size={15} className="text-pink-400" />
+            <Instagram size={15} />
             <span>Instagram</span>
           </a>
         </div>

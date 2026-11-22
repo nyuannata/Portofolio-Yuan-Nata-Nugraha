@@ -194,11 +194,11 @@ const categoryIcons = {
 };
 
 const categoryColors = {
-  Project: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-  Skill: "text-amber-400 bg-amber-500/10 border-amber-500/20",
-  Certification: "text-violet-400 bg-violet-500/10 border-violet-500/20",
-  Experience: "text-[#E8262A] bg-[#E8262A]/10 border-[#E8262A]/20",
-  Education: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+  Project: "text-zinc-300 bg-white/[0.05] border-white/10",
+  Skill: "text-zinc-300 bg-white/[0.05] border-white/10",
+  Certification: "text-zinc-300 bg-white/[0.05] border-white/10",
+  Experience: "text-zinc-300 bg-white/[0.05] border-white/10",
+  Education: "text-zinc-300 bg-white/[0.05] border-white/10",
 };
 
 export function SearchBar() {
@@ -389,7 +389,7 @@ export function SearchBar() {
           onClick={toggleVoiceRecognition}
           className={`relative flex items-center justify-center w-9 h-9 rounded-full transition-all cursor-pointer shrink-0 ${
             isListening
-              ? "bg-[#E8262A] text-white shadow-[0_0_15px_rgba(232,38,42,0.6)] animate-pulse"
+              ? "bg-[#E8262A] text-white"
               : "text-zinc-600 hover:text-[#E8262A] hover:bg-zinc-100"
           }`}
           title={isListening ? "Hentikan perekaman suara" : "Bicara untuk mencari (Voice-to-Text)"}
@@ -429,7 +429,7 @@ export function SearchBar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.98 }}
             transition={{ duration: 0.18 }}
-            className="absolute left-0 right-0 top-full mt-2 bg-zinc-950/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-[0_25px_60px_-10px_rgba(0,0,0,0.95),0_0_20px_rgba(232,38,42,0.1)] overflow-hidden z-50 flex flex-col max-h-[380px]"
+            className="absolute left-0 right-0 top-full mt-2 bg-zinc-950/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-50 flex flex-col max-h-[380px]"
             style={{ overscrollBehavior: 'contain' }}
           >
             {/* Header */}
