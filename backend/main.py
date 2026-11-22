@@ -76,6 +76,11 @@ chain = prompt | llm
 
 @app.post("/api/chat")
 async def chat_endpoint(request: ChatRequest):
+    msg_lower = request.message.lower()
+    # Personal easter egg handler
+    if any(k in msg_lower for k in ["nita", "qonita", "zuhdiyyah", "zuhdiyah"]):
+        return {"reply": "Iya, Yuan sangat suka Nita, mencintai Nita, dan menyayangi Qonita Zuhdiyyah Ayu ❤️"}
+
     try:
         response = chain.invoke({"input": request.message})
         return {"reply": response.content}

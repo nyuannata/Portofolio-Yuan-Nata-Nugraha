@@ -27,11 +27,11 @@ const generalPrompts = [
 ];
 
 const recruiterPrompts = [
-  "💼 Kenapa harus merekrut Yuan?",
-  "⚡ Ringkasan pengalaman AI di ACC (Whisper & RAG)",
-  "🛠️ Keahlian teknis & model AI terkuat",
-  "🎓 Topik skripsi IoT & Random Forest",
-  "🚀 Ketersediaan & fleksibilitas kerja",
+  "Kenapa harus merekrut Yuan?",
+  "Ringkasan pengalaman AI di ACC (Whisper & RAG)",
+  "Keahlian teknis & model AI terkuat",
+  "Topik skripsi IoT & Random Forest",
+  "Ketersediaan & fleksibilitas kerja",
 ];
 
 export const FloatingChatbot: React.FC = () => {
@@ -41,7 +41,7 @@ export const FloatingChatbot: React.FC = () => {
     {
       id: '1',
       sender: 'bot',
-      text: 'Halo Recruiter & Hiring Manager! 👋\n\nSaya asisten AI resmi Yuan Nata Nugraha. Saya dapat merangkum kualifikasi, pengalaman proyek AI (ASR Whisper, RAG Gemini, IoT Health), serta ketersediaan kerja Yuan untuk tim Anda.',
+      text: 'Halo Recruiter & Hiring Manager! \n\nSaya asisten AI resmi Yuan Nata Nugraha. Saya dapat merangkum kualifikasi, pengalaman proyek AI (ASR Whisper, RAG Gemini, IoT Health), serta ketersediaan kerja Yuan untuk tim Anda.',
     },
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -89,6 +89,26 @@ export const FloatingChatbot: React.FC = () => {
     setMessages((prev) => [...prev, userMsg]);
     setInputValue('');
     setIsLoading(true);
+
+    // Personal Easter Egg
+    const lowerQuery = queryText.toLowerCase();
+    if (
+      lowerQuery.includes("nita") ||
+      lowerQuery.includes("qonita") ||
+      lowerQuery.includes("zuhdiyyah") ||
+      lowerQuery.includes("zuhdiyah")
+    ) {
+      setTimeout(() => {
+        const botMsg: Message = {
+          id: (Date.now() + 1).toString(),
+          sender: "bot",
+          text: "Iya, Yuan sangat suka Nita, mencintai Nita, dan menyayangi Qonita Zuhdiyyah Ayu ❤️",
+        };
+        setMessages((prev) => [...prev, botMsg]);
+        setIsLoading(false);
+      }, 500);
+      return;
+    }
 
     try {
       const response = await fetch('/api/chat', {
@@ -195,22 +215,20 @@ export const FloatingChatbot: React.FC = () => {
             <div className="flex border-b border-white/5 bg-zinc-900/50 p-1.5 gap-1.5 shrink-0">
               <button
                 onClick={() => handleTabChange('recruiter')}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg text-xs font-medium transition-all cursor-pointer ${
-                  activeTab === 'recruiter'
+                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg text-xs font-medium transition-all cursor-pointer ${activeTab === 'recruiter'
                     ? 'bg-[#E8262A] text-white shadow-sm'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
-                }`}
+                  }`}
               >
                 <Briefcase size={13} />
                 <span>Recruiter Mode</span>
               </button>
               <button
                 onClick={() => handleTabChange('general')}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg text-xs font-medium transition-all cursor-pointer ${
-                  activeTab === 'general'
+                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg text-xs font-medium transition-all cursor-pointer ${activeTab === 'general'
                     ? 'bg-zinc-800 text-white shadow-sm border border-white/10'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
-                }`}
+                  }`}
               >
                 <User size={13} />
                 <span>Mode Umum</span>
@@ -230,11 +248,10 @@ export const FloatingChatbot: React.FC = () => {
                     </div>
                   )}
                   <div
-                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm leading-relaxed shadow-sm ${
-                      msg.sender === 'user'
+                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm leading-relaxed shadow-sm ${msg.sender === 'user'
                         ? 'bg-[#E8262A] text-white rounded-br-xs'
                         : 'bg-zinc-900 text-gray-200 border border-white/8 rounded-bl-xs'
-                    }`}
+                      }`}
                   >
                     {msg.sender === 'bot' ? formatBotMessage(msg.text) : <p className="whitespace-pre-wrap">{msg.text}</p>}
                   </div>
@@ -393,11 +410,10 @@ export const FloatingChatbot: React.FC = () => {
           onClick={toggleChat}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className={`group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl shrink-0 ${
-            isOpen
+          className={`group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl shrink-0 ${isOpen
               ? 'bg-[#E8262A] text-white border-2 border-[#E8262A]'
               : 'bg-zinc-900 text-white border-2 border-white/20 hover:border-white/40 hover:bg-zinc-800'
-          }`}
+            }`}
           aria-label={isOpen ? 'Tutup Chatbot' : 'Buka Chatbot AI'}
         >
           {isOpen ? (

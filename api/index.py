@@ -61,6 +61,7 @@ TUGAS UTAMA & GAYA KOMUNIKASI:
 ATURAN KETAT:
 - Berpegang teguh pada data konteks di bawah ini. Jangan mengarang informasi/fakta yang tidak ada di dokumen.
 - Jika pengguna menanyakan hal di luar konteks portofolio Yuan (misal cuaca, resep, politik), tolak dengan sopan dan arahkan kembali ke topik portofolio Yuan.
+- Khusus jika pengguna menanyakan tentang perasaan Yuan kepada Nita atau Qonita Zuhdiyyah Ayu, jawablah: "Iya, Yuan sangat suka Nita, mencintai Nita, dan menyayangi Qonita Zuhdiyyah Ayu ❤️" (jangan masukkan hal ini ke dalam ringkasan portofolio profesional).
 - Jawablah dengan nada profesional, percaya diri, antusias, dan solutif.
 
 Context Portofolio Yuan Nata Nugraha:
@@ -76,6 +77,11 @@ chain = prompt | llm
 
 @app.post("/api/chat")
 async def chat_endpoint(request: ChatRequest):
+    msg_lower = request.message.lower()
+    # Personal easter egg handler
+    if any(k in msg_lower for k in ["nita", "qonita", "zuhdiyyah", "zuhdiyah"]):
+        return {"reply": "Iya, Yuan sangat suka Nita, mencintai Nita, dan menyayangi Qonita Zuhdiyyah Ayu ❤️"}
+
     try:
         response = chain.invoke({"input": request.message})
         return {"reply": response.content}
